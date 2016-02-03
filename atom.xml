@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-03T11:56:22.000Z</updated>
+  <updated>2016-02-03T12:04:30.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,17 +19,24 @@
     <link href="http://yoursite.com/2016/02/03/request%E5%92%8Cresponse%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
     <id>http://yoursite.com/2016/02/03/request和response中文乱码/</id>
     <published>2016-02-03T10:27:41.000Z</published>
-    <updated>2016-02-03T11:56:22.000Z</updated>
+    <updated>2016-02-03T12:04:30.000Z</updated>
     <content type="html"><![CDATA[<h2 id="request_u548Cresponse_u4E2D_u6587_u4E71_u7801_u53CA_u89E3_u51B3_u65B9_u6CD5"><a href="#request_u548Cresponse_u4E2D_u6587_u4E71_u7801_u53CA_u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="request和response中文乱码及解决方法"></a>request和response中文乱码及解决方法</h2><p><strong><em>request乱码指的是</em></strong>：浏览器向服务器发送的请求参数中包含中文字符，服务器获取到的请求参数的值是乱码；<br><strong><em>response乱码指的是</em></strong>：服务器向浏览器发送的数据包含中文字符，浏览器中显示的是乱码; </p>
 <p><strong><em>乱码产生的原因</em></strong>：不管是request乱码还是response乱码，其实都是由于浏览器跟服务器端采用的编码格式不一致造成的。以request乱码为例：浏览器向服务器发送请求，因为浏览器与服务器之间的通信实质上是socket流，所以要先将请求参数（字符）转换成字节(编码过程)，服务器接收到请求参数后进行解码（字节转字符），然后封装到request对象中。如果客户端的编码与服务器端的解码不统一，就会导致通过request获取到的请求参数的值是乱码。  </p>
 <h3 id="response_u4E71_u7801"><a href="#response_u4E71_u7801" class="headerlink" title="response乱码"></a>response乱码</h3><p>服务器发给浏览器的数据默认是按照ISO-8859-1编码，浏览器接收到数据后按照默认的字符集进行解码后显示，如果浏览器的默认解码字符集不是ISO-8859-1，就出现乱码。对于response乱码，只需要在服务器端指定一个编码字符集，然后通知浏览器按照这个字符集进行解码就可以了。  </p>
 <ol>
-<li>A设置服务器端的编码<br><code>response.setCharacterEncoding(&quot;utf-8&quot;);</code>该方法必须在<code>response.getWriter()</code>之前进行设置。<br>B通知浏览器服务器发送的数据格式<br><code>response.setContentType(&quot;text/html;charset=utf-8&quot;);</code>等价于<br><code>response.setHeader(&quot;contentType&quot;, &quot;text/html; charset=utf-8&quot;);</code><br>C浏览器使用utf-8进行解码<br>2.当用到<code>response.sendRedirect(&quot;____?name=&quot;+u)</code>转向时，u一定要为iso-8859-1编码方式，否则容易出现乱码。将utf-8编码的中文转为iso-8859-1编码：<br><code>String u=new String(uu.getBytes(&quot;utf-8&quot;),&quot;iso-8859-1&quot;);//uu为utf-8编码的中文</code><br>中文u的值传入到转向的servlet，iso-8859-1自动转为utf-8编码，若无自动转换，用上述转换代码进行转换。  <h3 id="request_u4E71_u7801"><a href="#request_u4E71_u7801" class="headerlink" title="request乱码"></a>request乱码</h3>从浏览器发起的访问方式有三种：在地址栏直接输入URL访问、点击页面中的超链接访问、提交表单访问。第一种访问方式浏览器默认将参数按照utf-8进行编码，后面两种访问方式浏览器将参数按照当前页面的显示编码进行编码。所以对于request乱码，只需要在服务器端设置相应的解码格式即可。由于访问方式不同，浏览器对参数的编码格式也不同，为了方便处理，通过超链接和表单的访问也规定必须是utf-8格式，即显示当前页面的编码也要使用utf-8，这样浏览器将统一使用utf-8对参数进行编码。  </li>
+<li>A设置服务器端的编码<br><code>response.setCharacterEncoding(&quot;utf-8&quot;);</code>该方法必须在<code>response.getWriter()</code>之前进行设置。<br>B通知浏览器服务器发送的数据格式<br><code>response.setContentType(&quot;text/html;charset=utf-8&quot;);</code>等价于<br><code>response.setHeader(&quot;contentType&quot;, &quot;text/html; charset=utf-8&quot;);</code><br>C浏览器使用utf-8进行解码<br>2.当用到<code>response.sendRedirect(&quot;____?name=&quot;+u)</code>转向时，u一定要为iso-8859-1编码方式，否则容易出现乱码。将utf-8编码的中文转为iso-8859-1编码：<br><code>String u=new String(uu.getBytes(&quot;utf-8&quot;),&quot;iso-8859-1&quot;);//uu为utf-8编码的中文</code><br>中文u的值传入到转向的servlet，iso-8859-1自动转为utf-8编码，若无自动转换，用上述转换代码进行转换。<h3 id="request_u4E71_u7801"><a href="#request_u4E71_u7801" class="headerlink" title="request乱码"></a>request乱码</h3>从浏览器发起的访问方式有三种：在地址栏直接输入URL访问、点击页面中的超链接访问、提交表单访问。第一种访问方式浏览器默认将参数按照utf-8进行编码，后面两种访问方式浏览器将参数按照当前页面的显示编码进行编码。所以对于request乱码，只需要在服务器端设置相应的解码格式即可。由于访问方式不同，浏览器对参数的编码格式也不同，为了方便处理，通过超链接和表单的访问也规定必须是utf-8格式，即显示当前页面的编码也要使用utf-8，这样浏览器将统一使用utf-8对参数进行编码。  </li>
 <li>post方式属于表单提交，参数存在于请求体中。<br><code>request.setCharacterEncoding(&quot;utf-8&quot;)</code></li>
 <li>get方式属于表单提交，参数存在URL中，服务器按照默认的iso-8859-1进行解码<br><code>String u=new String(request.getParameter(&quot;&quot;).getBytes(&quot;iso-8859-1&quot;),&quot;utf-8&quot;)</code>  </li>
 <li>超链接访问中有中文参数时，可以修改服务器端对URL参数的默认编码。在tomcat的server.xml中，设置元素的属性URIEncoding=”UTF-8”即可。以上只要涉及URL中有中文都可试着用此方法解决。  </li>
 </ol>
-<h3 id="u5229_u7528_u8FC7_u6EE4_u5668_u89E3_u51B3_u4E71_u7801_u95EE_u9898_uFF1A"><a href="#u5229_u7528_u8FC7_u6EE4_u5668_u89E3_u51B3_u4E71_u7801_u95EE_u9898_uFF1A" class="headerlink" title="利用过滤器解决乱码问题："></a>利用过滤器解决乱码问题：</h3><p>在Filter的<code>init</code>方法中获取<code>web.xml</code>的filter编码设置：<br><code>String charEncoding=fConfig.getInitParameter(&quot;encoding&quot;);</code><br>在Filter的<code>doFilter</code>方法中设置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//当前应用的默认编码与请求的编码值不相同，执行</span><br><span class="line">if(!charEncoding.equal(request.getCharacterEncoding()))&#123;</span><br><span class="line">    request.getCharacterEncoding(charEncoding)；</span><br><span class="line">&#125;</span><br><span class="line">response.getCharacterEncoding(charEncoding)；</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">web.xml配置</span><br><span class="line">```xml</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">&lt;init-param&gt;</span><br><span class="line">    &lt;param-name&gt;encoding&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;UTF-8&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br><span class="line">&lt;/filter&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="u5229_u7528_u8FC7_u6EE4_u5668_u89E3_u51B3_u4E71_u7801_u95EE_u9898_uFF1A"><a href="#u5229_u7528_u8FC7_u6EE4_u5668_u89E3_u51B3_u4E71_u7801_u95EE_u9898_uFF1A" class="headerlink" title="利用过滤器解决乱码问题："></a>利用过滤器解决乱码问题：</h3><p>在Filter的<code>init</code>方法中获取<code>web.xml</code>的filter编码设置：<br><code>String charEncoding=fConfig.getInitParameter(&quot;encoding&quot;);</code><br>在Filter的<code>doFilter</code>方法中设置：  </p>
+<pre><code class="java"><span class="comment">//当前应用的默认编码与请求的编码值不相同，执行</span>
+<span class="keyword">if</span>(!charEncoding.equal(request.getCharacterEncoding())){
+    request.getCharacterEncoding(charEncoding)；
+}
+response.getCharacterEncoding(charEncoding)；
+</code></pre>
+<p>web.xml配置<br><code>&lt;filter&gt;</code><br><code>&lt;init-param&gt;</code><br><code>&lt;param-name&gt;encoding&lt;/param-name&gt;</code><br><code>&lt;param-value&gt;UTF-8&lt;/param-value&gt;</code><br><code>&lt;/init-param&gt;</code><br><code>&lt;/filter&gt;</code></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="request_u548Cresponse_u4E2D_u6587_u4E71_u7801_u53CA_u89E3_u51B3_u65B9_u6CD5"><a href="#request_u548Cresponse_u4E2D_u6587_u4E71_u7801]]>
