@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Hello World | 黄鑫&#39;s blog</title>
+  <title>git总结 | 黄鑫&#39;s blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -249,39 +249,36 @@ var _hmt = _hmt || [];
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-01-27T16:44:31.000Z" itemprop="datePublished">
-          2016-01-28
+      <time datetime="2016-02-06T10:16:52.000Z" itemprop="datePublished">
+          2016-02-06
       </time>
     
 </span>
-                <h1>Hello World</h1>
+                <h1>git总结</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+      		<h3 id="Linux_u4E0B_u5B89_u88C5git"><a href="#Linux_u4E0B_u5B89_u88C5git" class="headerlink" title="Linux下安装git"></a>Linux下安装git</h3><p><code>sudo apt-get install git</code>或者<code>sudo apt-get install git-core</code></p>
+<h3 id="Mac_OS_X_u4E0B_u5B89_u88C5git"><a href="#Mac_OS_X_u4E0B_u5B89_u88C5git" class="headerlink" title="Mac OS X下安装git"></a>Mac OS X下安装git</h3><p>首次需要安装<code>homebrew</code>，它的命令是：<code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code><br>然后用<code>homebrew</code>安装<code>git</code>，命令是：<code>brew install git</code>,安装后输入<code>git --version</code>查看<code>git</code>安装是否成功，我的电脑显示<code>git version 2.7.0</code></p>
+<h3 id="Windows_u4E0B_u5B89_u88C5git"><a href="#Windows_u4E0B_u5B89_u88C5git" class="headerlink" title="Windows下安装git"></a>Windows下安装git</h3><p>Linux或Mac大法好，赶紧换系统吧亲。  </p>
+<p>安装完后需要设置:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="git_u547D_u4EE4"><a href="#git_u547D_u4EE4" class="headerlink" title="git命令"></a>git命令</h1><hr>
+<p>以下只做命令总结，方便自己用到时能快速查询，学习<code>git</code>请点传送门：<br><strong><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程传送门</a></strong><br><code>git init</code>建立仓库<br><code>git add [filename]</code>把文件从工作区加到暂存区<br><code>git commit -m &quot;balabala&quot;</code>文件提交到仓库<br><code>git status</code>查看当前仓库状态<br><code>git diff [filename]</code>仓库状态为文件修改过，查看上一次修改情况<br><code>git log</code>查看提交历史<br><code>git log --pretty=oneline</code>简化日志内容<br><code>git reset --hard HEAD^</code>回到上一版本<br><code>git reset --hard HEAD^^</code>回到上上一版本<br><code>git reset --hard HEAD~100</code>回到前100版本<br><code>git reset --hard [commit_id]</code>去到未来版本，commit_id为未来版本号<br><code>git reflog</code>查看命令历史，包含commit_id等信息<br><code>git diff HEAD -- [filename]</code>查看工作区和版本库最新版本的区别<br><code>git checkout -- [filename]</code>丢弃工作区的修改回到和版本库一样；撤回修改到添加暂存区后状态<br><code>git reset HEAD [filename]</code>暂存区的修改撤销掉，重新放回工作区。再用上一条丢弃工作区修改<br><code>git rm  [filename]</code>从版本库中删除该文件并<code>git commit</code><br><code>git remote add origin git@github.com:bupthuangxin/仓库名.git</code>本地关联github远程库<br><code>git push -u origin master</code>本地库所有内容推送到远程库<br><code>git clone git@github.com:bupthuangxin/仓库名.git</code>远程库克隆本地库<br><code>git checkout -b dev</code>创建dev分支并切换至dev<br><code>git branch dev</code>创建dev分支<br><code>git checkout dev</code>切换至dev分支<br><code>git branch</code>查看当前分支<br><code>git merge dev</code>在master分支时，合并两分支，Fast-forward方式<br><code>git branch -d dev</code>删除dev分支<br><code>git log --graph --pretty=oneline --abbrev-commit</code>查看分支合并图<br><code>git merge --no-ff -m &quot;balabala&quot; dev</code>禁用Fast-forward方式进行合并<br><code>git stash</code>储藏当前分支的工作现场<br><code>git stash list</code>查看当前分支工作现场<br><code>git stash apply</code>恢复工作<br><code>git stash drop</code>删除stash内容<br><code>git stash pop</code>恢复并删除stash内容<br><code>git branch -D dev</code>强行删除分支（分支还没合并）<br><code>git remote -v</code>查看远程库信息<br><code>git push origin [分支名]</code>此分支推送远程库<br><code>git checkout -b dev origin/dev</code>克隆远程库只能看见master分支，切换到dev分支<br><code>git pull</code>推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并<br><code>git branch --set-upstream branch-name origin/branch-name</code>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建<br><code>git tag [标签名]</code>给当前版本打标签<br><code>git tag</code>查看所有标签<br><code>git tag [标签名] [commit_id]</code>给之前的版本打标签<br><code>git show [标签名]</code>查看标签信息<br><code>git tag -a [标签名] -m &quot;balabala&quot; [commit_id]</code>用-a指定标签名，-m指定说明文字<br><code>git tag -d [标签名]</code>删除标签<br><code>git push origin [标签名]</code>推送标签到远程<br><code>git push origin --tags</code>推送全部尚未推送到远程的本地标签<br><code>git push origin :refs/tags/[标签名]</code>删除远程标签</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/02/03/request和response中文乱码/" style="float: left;">
-        ← request和response中文乱码
-    </a>
     
+    <a class="pull-right" href="/2016/02/03/request和response中文乱码/">
+        request和response中文乱码 →
+    </a>
     
 </nav>
 
         <div class="duoshuo"><!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/01/28/hello-world/" data-title="Hello World" data-url="http://yoursite.com/2016/01/28/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="2016/02/06/git总结/" data-title="git总结" data-url="http://yoursite.com/2016/02/06/git总结/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
