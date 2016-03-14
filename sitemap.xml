@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/03/14/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AFcookie/</loc>
+    <lastmod>2016-03-14T09:14:08.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/03/14/HttpServletResponse%E5%92%8CHttpServletRequest%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/</loc>
     <lastmod>2016-03-14T06:49:40.000Z</lastmod>
   </url>

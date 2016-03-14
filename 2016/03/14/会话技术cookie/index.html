@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Category: Servlet | 黄鑫&#39;s blog</title>
+  <title>会话技术cookie | 黄鑫&#39;s blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -99,7 +99,7 @@ var _hmt = _hmt || [];
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -244,76 +244,143 @@ var _hmt = _hmt || [];
 
         <!-- ============================ END Hero Image =========================== -->
       
-
-
-<section id="services">
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/03/14/会话技术cookie/">会话技术cookie</a></h4>
-                            
-                            <p><time datetime="2016-03-14T09:12:55.000Z"><a href="/2016/03/14/会话技术cookie/">2016-03-14</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/03/14/HttpServletResponse和HttpServletRequest常见应用/">HttpServletResponse和HttpServletRequest常见应用</a></h4>
-                            
-                            <p><time datetime="2016-03-14T06:48:21.000Z"><a href="/2016/03/14/HttpServletResponse和HttpServletRequest常见应用/">2016-03-14</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/03/14/HTTP协议详解/">HTTP协议详解</a></h4>
-                            
-                            <p><time datetime="2016-03-14T04:11:55.000Z"><a href="/2016/03/14/HTTP协议详解/">2016-03-14</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/03/13/servlet生命周期及web.xml配置/">servlet生命周期及web.xml配置</a></h4>
-                            
-                            <p><time datetime="2016-03-13T14:32:02.000Z"><a href="/2016/03/13/servlet生命周期及web.xml配置/">2016-03-13</a></time></p>
-                        </div>
-                    
-                        
-                            </div><div class="row boxes">
-                            
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/02/03/request和response中文乱码/">request和response中文乱码</a></h4>
-                            
-                            <p><time datetime="2016-02-03T10:27:41.000Z"><a href="/2016/02/03/request和response中文乱码/">2016-02-03</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-03-14T09:12:55.000Z" itemprop="datePublished">
+          2016-03-14
+      </time>
+    
+    
+    | 
+    <a href='/tags/servlet/'>servlet</a>
+    
+    
+</span>
+                <h1>会话技术cookie</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="u4F1A_u8BDD_u6982_u5FF5"><a href="#u4F1A_u8BDD_u6982_u5FF5" class="headerlink" title="会话概念"></a><strong>会话概念</strong></h2><p>会话可简单理解为：用户开一个浏览器，点击多个超链接，访问服务器多个web资源，然后关闭浏览器，整个过程称之为一个会话。<br>每个用户在使用浏览器与服务器进行会话的过程中，不可避免各自会产生一些数据，程序要想办法为每个用户保存这些数据。  </p>
+<h2 id="u4FDD_u5B58_u4F1A_u8BDD_u6570_u636E_u7684_u4E24_u79CD_u6280_u672F"><a href="#u4FDD_u5B58_u4F1A_u8BDD_u6570_u636E_u7684_u4E24_u79CD_u6280_u672F" class="headerlink" title="保存会话数据的两种技术"></a><strong>保存会话数据的两种技术</strong></h2><h3 id="cookie_u673A_u5236"><a href="#cookie_u673A_u5236" class="headerlink" title="cookie机制"></a>cookie机制</h3><blockquote>
+<p>1.Cookie是客户端技术。理论上，一个用户的所有请求操作都应该属于同一个会话，而另一个用户的所有请求操作则应该属于另一个会话，二者不能混淆。例如，用户A在超市购买的任何商品都应该放在A的购物车内，不论是用户A什么时间购买的，这都是属于同一个会话的，不能放入用户B或用户C的购物车内，这不属于同一个会话。<br>2.而Web应用程序是使用HTTP协议传输数据的。HTTP协议是无状态的协议。一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接。这就意味着服务器无法从连接上跟踪会话。即用户A购买了一件商品放入购物车内，当再次购买商品时服务器已经无法判断该购买行为是属于用户A的会话还是用户B的会话了。要跟踪该会话，必须引入一种机制。<br>3.Cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态。  </p>
+</blockquote>
+<h2 id="session_u673A_u5236"><a href="#session_u673A_u5236" class="headerlink" title="session机制"></a>session机制</h2><blockquote>
+<p>Session是服务器端技术。服务器在运行时可以为每一个用户的浏览器创建一个其独享的session对象，由于session为用户浏览器独享，所以用户在访问服务器的web资源时，可以把各自的数据放在各自的session中，当用户再去访问服务器中的其它web资源时，其它web资源再从用户各自的session中取出数据为用户服务。  </p>
+</blockquote>
+<h3 id="cookie_u5E94_u7528"><a href="#cookie_u5E94_u7528" class="headerlink" title="cookie应用"></a>cookie应用</h3><pre><code class="Java"><span class="comment">//cookie中文处理</span>
+String name=java.net.URLEncoder.encode(<span class="string">"黄鑫"</span>,<span class="string">"utf-8"</span>);
+<span class="comment">//创建cookie</span>
+Cookie cookie=<span class="keyword">new</span> Cookie(<span class="string">"name"</span>,name);
+<span class="comment">//设置cookie的生命周期</span>
+cookie.setMaxAge(<span class="number">3600</span>);
+<span class="comment">//把cookie信息回写给浏览器，响应头Set-Cookie中内容</span>
+response.addCookie(cookie);
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>有时候阳光很好，有时候阳光很差，这就是生活吧。</p>
+<span class="comment">//读取所有cookie信息再筛选</span>
+Cookie cookies[]=request.getCookies();
+<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cookies.length;i++){
+    Cookie cookie=cookies[i];
+    <span class="keyword">if</span>(cookie.getName().equals(<span class="string">"name"</span>)){
+        <span class="comment">//对中文进行解码</span>
+        String val=java.net.URLDecoder.decode(cookie.getValue(),<span class="string">"utf-8"</span>);
+        out.println(cookie.getName()+<span class="string">" "</span>+val);
+    }
+}
+</code></pre>
+<p>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie1/src/com/huangxin/CreateCookie.java" target="_blank" rel="external">Github地址：创建cookie</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie1/src/com/huangxin/ReadCookie1.java" target="_blank" rel="external">Github地址：读取cookie</a></em></strong>  </p>
+<blockquote>
+<p>1.<code>public void setMaxAge(int expiry)</code>这个方法是设置Cookie的最大保存时间，即cookie的有效期。<br>2.当服务器给浏览器回送一个cookie时，如果在服务器端没有调用setMaxAge方法设置cookie的有效期，那么cookie的有效期只在一次会话过程中有效，当用户关闭浏览器，会话就结束了，此时cookie就会失效。<br>3.如果在服务器端使用setMaxAge方法设置了cookie的有效期，比如设置了30分钟，那么当服务器把cookie发送给浏览器时，此时cookie就会在客户端的硬盘上存储30分钟，在30分钟内，即使浏览器关了，cookie依然存在，在30分钟内，打开浏览器访问服务器时，浏览器都会把cookie一起带上，这样就可以在服务器端获取到客户端浏览器传递过来的cookie里面的信息了。  </p>
+</blockquote>
+<h3 id="u6848_u4F8B_uFF1A_u5B58_u50A8_u4E0A_u4E00_u6B21_u8BBF_u95EE_u65F6_u95F4"><a href="#u6848_u4F8B_uFF1A_u5B58_u50A8_u4E0A_u4E00_u6B21_u8BBF_u95EE_u65F6_u95F4" class="headerlink" title="案例：存储上一次访问时间"></a>案例：存储上一次访问时间</h3><pre><code class="Java">Cookie[] cookies=request.getCookies();
+<span class="keyword">boolean</span> b=<span class="keyword">false</span>;<span class="comment">//假设没有此cookie</span>
+<span class="keyword">if</span>(cookies!=<span class="keyword">null</span>){
+    <span class="keyword">for</span>(Cookie cookie:cookies){
+        String name=cookie.getName();
+        <span class="keyword">if</span>(<span class="string">"lasttime"</span>.equals(name)){
+            out.println(<span class="string">"您上次登录的时间:"</span>+cookie.getValue());
+            <span class="comment">//更新</span>
+            SimpleDateFormat simpleDateFormat=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);
+            String nowTime = simpleDateFormat.format(<span class="keyword">new</span> java.util.Date());
+            <span class="comment">//Cookie mycookie=new Cookie("lasttime",nowTime);</span>
+            cookie.setValue(nowTime);
+            cookie.setMaxAge(<span class="number">3600</span>);
+            response.addCookie(cookie);
+            b=<span class="keyword">true</span>;
+            <span class="keyword">break</span>;
+        }
+    }
+}
+
+<span class="keyword">if</span>(b==<span class="keyword">false</span>){
+    out.println(<span class="string">"first"</span>);
+    SimpleDateFormat simpleDateFormat=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);
+    String nowTime = simpleDateFormat.format(<span class="keyword">new</span> java.util.Date());
+    Cookie cookie=<span class="keyword">new</span> Cookie(<span class="string">"lasttime"</span>,nowTime);
+    cookie.setMaxAge(<span class="number">3600</span>);
+    response.addCookie(cookie);
+}
+</code></pre>
+<p>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie1/src/com/huangxin/Servlet1.java" target="_blank" rel="external">Github地址：存取上一次访问时间</a></em></strong>  </p>
+<h3 id="u6848_u4F8B_uFF1Acookie_u767B_u9646"><a href="#u6848_u4F8B_uFF1Acookie_u767B_u9646" class="headerlink" title="案例：cookie登陆"></a>案例：cookie登陆</h3><pre><code class="Java">String value = request.getParameter(<span class="string">"iskeepinfo"</span>);
+String id = request.getParameter(<span class="string">"id"</span>);
+<span class="keyword">if</span>(value!=<span class="keyword">null</span>&amp;&amp;value.equals(<span class="string">"keep"</span>)){
+    <span class="comment">//保存id</span>
+    <span class="comment">//创建cookie保存到登录用户的机器上</span>
+    Cookie cookie=<span class="keyword">new</span> Cookie(<span class="string">"id"</span>,id);
+    cookie.setMaxAge(<span class="number">3600</span>);
+    response.addCookie(cookie);
+    request.getRequestDispatcher(<span class="string">"/Ok"</span>).forward(request, response);
+}<span class="keyword">else</span> <span class="keyword">if</span>(value!=<span class="keyword">null</span>&amp;&amp;value.equals(<span class="string">"nokeep"</span>)){
+    Cookie[] cookies=request.getCookies();
+    <span class="keyword">for</span>(Cookie cookie:cookies){
+        <span class="keyword">if</span>(cookie.getName().equals(<span class="string">"id"</span>)){
+            cookie.setMaxAge(<span class="number">0</span>);
+            response.addCookie(cookie);
+        }
+    }
+}<span class="keyword">else</span>{
+    request.getRequestDispatcher(<span class="string">"/Ok"</span>).forward(request, response);
+}
+</code></pre>
+<p>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie2/src/com/huangxin/view/Login.java" target="_blank" rel="external">Github地址：登陆页面</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie2/src/com/huangxin/controller/LoginCl.java" target="_blank" rel="external">Github地址：cookie处理</a></em></strong>  </p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/03/14/HttpServletResponse和HttpServletRequest常见应用/">
+        HttpServletResponse和HttpServletRequest常见应用 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"><!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/03/14/会话技术cookie/" data-title="会话技术cookie" data-url="http://yoursite.com/2016/03/14/会话技术cookie/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"bupthuangxin"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</div>
     </div>
 </section>
+
+
+
       
 <!-- ============================ Footer =========================== -->
 
