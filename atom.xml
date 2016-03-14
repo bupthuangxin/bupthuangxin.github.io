@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-14T04:18:58.000Z</updated>
+  <updated>2016-03-14T06:49:40.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[HttpServletResponse和HttpServletRequest常见应用]]></title>
+    <link href="http://yoursite.com/2016/03/14/HttpServletResponse%E5%92%8CHttpServletRequest%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/"/>
+    <id>http://yoursite.com/2016/03/14/HttpServletResponse和HttpServletRequest常见应用/</id>
+    <published>2016-03-14T06:48:21.000Z</published>
+    <updated>2016-03-14T06:49:40.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="HttpServletResponse"><a href="#HttpServletResponse" class="headerlink" title="HttpServletResponse"></a><strong>HttpServletResponse</strong></h1><ul>
+<li>向客户端输出数据  <pre><code class="Java"><span class="comment">//文本文件（字符）</span>
+PrintWriter out = response.getWriter();
+out.println(<span class="string">"hello world"</span>);
+<span class="comment">//二进制文件（字节/字符）</span>
+OutputStream os=response.getOutputStream();
+os.write(<span class="string">"hello world"</span>.getBytes());
+</code></pre>
+两个流不能同时使用，当回送字符时，PrintWriter效率更高一些，回送字节用OutputStream。  </li>
+<li>请求重定向  <pre><code class="Java">response.sendRedirect(<span class="string">"/UserManager/LoginServlet"</span>);<span class="comment">//"资源"</span>
+<span class="comment">//向下一个资源传递参数</span>
+response.sendRedirect(<span class="string">"/UserManager/MainFrame?uname="</span>+username+<span class="string">"&amp;pwd="</span>+password);
+</code></pre>
+注意当用sendRedirect传递参数时，只能传<code>String</code>，不能传<code>object</code>。此重定向会回到浏览器。  </li>
+<li>发送http响应头  <pre><code class="Java">response.setHeader(<span class="string">"报头名"</span>,<span class="string">"内容"</span>)<span class="comment">//来设置回送</span>
+response.setContentType(<span class="string">"text/html;charset=utf-8"</span>)<span class="comment">//设置回送内容样式</span>
+response.setStatus()<span class="comment">//设置状态码</span>
+response.setCharacterEncoding(<span class="string">"utf-8"</span>)
+</code></pre>
+具体内容见上一篇文章 <strong><em><a href="http://huangxin1993.top/2016/03/14/HTTP协议详解/" target="_blank" rel="external">HTTP协议详解</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject2/src/com/hx/ResponseTest.java" target="_blank" rel="external">Github地址：设置响应报头</a></em></strong>  </li>
+<li>文件下载<br>具体内容见上一篇文章 <strong><em><a href="http://huangxin1993.top/2016/03/14/HTTP协议详解/" target="_blank" rel="external">HTTP协议详解</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject/src/com/hsp/servlet/Download.java" target="_blank" rel="external">Github地址：文件下载</a></em></strong>  </li>
+</ul>
+<h1 id="HttpServletRequest"><a href="#HttpServletRequest" class="headerlink" title="HttpServletRequest"></a><strong>HttpServletRequest</strong></h1><ul>
+<li>获取客户机请求头信息  <pre><code class="Java"><span class="comment">//获取URL</span>
+String URL=request.getRequestURL().toString();
+<span class="comment">//获取URI，web名+资源名</span>
+String URI=request.getRequestURI();
+<span class="comment">//获取请求数据 URL？username=aa&amp;pwd=123</span>
+String queryString=request.getQueryString();
+<span class="comment">//获取请求客户端IP地址</span>
+String remoteAddr=request.getRemoteAddr();
+<span class="comment">//获取web服务器IP地址</span>
+String localAddr=request.getLocalAddr();
+<span class="comment">//获取请求主机名（DNS注册），若无注册为IP地址</span>
+String remoteHost=request.getRemoteHost();
+<span class="comment">//获取web服务器主机名</span>
+String localName=request.getLocalName();
+<span class="comment">//获取客户机端口号</span>
+<span class="keyword">int</span> remotePort=request.getRemotePort();
+<span class="comment">//获取web服务器端口号</span>
+<span class="keyword">int</span> localPort=request.getLocalPort();
+</code></pre>
+具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject3/src/com/huangxin/GetInfoServlet.java" target="_blank" rel="external">Github地址：获取客户机信息</a></em></strong><br><code>request.getHeader(&quot;请求头名&quot;)</code><br><code>request.getHeaderNames()</code>可以获取所有Header头的名字<br>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject3/src/com/huangxin/GetRequestHeader.java" target="_blank" rel="external">Github地址：获取客户机信息</a></em></strong>  </li>
+<li>获取客户机请求参数（表单）  <pre><code class="Java"><span class="comment">//接收参数</span>
+String u=request.getParameter(<span class="string">"username"</span>);
+<span class="comment">//接收复选框</span>
+String[] hobbies=request.getParameterValues(<span class="string">"hobby"</span>);
+</code></pre>
+具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject3/src/com/huangxin/RegisterCl.java" target="_blank" rel="external">Github地址：获取请求参数</a></em></strong>  </li>
+<li>请求转向<pre><code class="Java"><span class="comment">//将参数传递给下一个页面</span>
+request.setAttribute(<span class="string">"u"</span>, username);
+request.getRequestDispatcher(<span class="string">"/Servlet2"</span>).forward(request, response);
+<span class="comment">//第二页面获取参数</span>
+String username=(String) request.getAttribute(<span class="string">"u"</span>);
+</code></pre>
+<blockquote>
+<p><strong><em>请求转向和请求重定向的区别</em></strong><br>1.请求重定向传递参数为<code>response.sendRedirect(&quot;/UserManager/MainFrame?uname=&quot;+username+&quot;&amp;pwd=&quot;+password);</code>，只能传递<code>String</code>，请求转向传递参数为<code>request.setAttribute(&quot;u&quot;, username)</code>，key为String，value为object。<br>2.请求重定向可以转向该web应用之外的URL，而请求转向不能访问此web应用，因为其发生在服务器端，没有回到浏览器端。<br>3.请求转向地址栏显示第一次forward的URL，但数据为第二次的。<br>4.<code>request.setAttribute(&quot;u&quot;, username)</code>把数据放在request域对象中，属性在一次请求中有效（请求未回到浏览器成为一次请求）。  </p>
+</blockquote>
+</li>
+</ul>
+<p>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/requestForward/src/com/huangxin/Login.java" target="_blank" rel="external">Github地址：登陆表单</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/requestForward/src/com/huangxin/Servlet1.java" target="_blank" rel="external">Github地址：servlet1请求转向</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/requestForward/src/com/huangxin/Servlet2.java" target="_blank" rel="external">Github地址：servlet2接收</a></em></strong>  </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="HttpServletResponse"><a href="#HttpServletResponse" class="headerlink" title="HttpServletResponse"></a><strong>HttpServletResponse</]]>
+    </summary>
+    
+      <category term="servlet" scheme="http://yoursite.com/tags/servlet/"/>
+    
+      <category term="Servlet" scheme="http://yoursite.com/categories/Servlet/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[HTTP协议详解]]></title>

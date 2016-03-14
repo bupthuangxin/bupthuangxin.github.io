@@ -134,7 +134,7 @@ var _hmt = _hmt || [];
 				  	
 				    <li><a href="/categories/Git/" class="animsition-link">Git<small>(1)</small></a></li>
 				    
-				    <li><a href="/categories/Servlet/" class="animsition-link">Servlet<small>(3)</small></a></li>
+				    <li><a href="/categories/Servlet/" class="animsition-link">Servlet<small>(4)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -247,6 +247,49 @@ var _hmt = _hmt || [];
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/03/14/HttpServletResponse和HttpServletRequest常见应用/">HttpServletResponse和HttpServletRequest常见应用</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-03-14T06:48:21.000Z" itemprop="datePublished">
+          2016-03-14
+      </time>
+    
+    
+    | 
+    <a href='/tags/servlet/'>servlet</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        HttpServletResponse
+向客户端输出数据  //文本文件（字符）
+PrintWriter out = response.getWriter();
+out.println("hello world");
+//二进制文件（字节/字符）
+OutputStream os=response.getOutputStream();
+os.write("hello world".getBytes());
+
+两个流不能同时使用，当回送字符
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/03/14/HttpServletResponse和HttpServletRequest常见应用/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
