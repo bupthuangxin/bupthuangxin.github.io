@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-14T09:14:08.000Z</updated>
+  <updated>2016-03-14T11:20:06.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2016/03/14/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AFcookie/"/>
     <id>http://yoursite.com/2016/03/14/会话技术cookie/</id>
     <published>2016-03-14T09:12:55.000Z</published>
-    <updated>2016-03-14T09:14:08.000Z</updated>
+    <updated>2016-03-14T11:20:06.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u4F1A_u8BDD_u6982_u5FF5"><a href="#u4F1A_u8BDD_u6982_u5FF5" class="headerlink" title="会话概念"></a><strong>会话概念</strong></h2><p>会话可简单理解为：用户开一个浏览器，点击多个超链接，访问服务器多个web资源，然后关闭浏览器，整个过程称之为一个会话。<br>每个用户在使用浏览器与服务器进行会话的过程中，不可避免各自会产生一些数据，程序要想办法为每个用户保存这些数据。  </p>
 <h2 id="u4FDD_u5B58_u4F1A_u8BDD_u6570_u636E_u7684_u4E24_u79CD_u6280_u672F"><a href="#u4FDD_u5B58_u4F1A_u8BDD_u6570_u636E_u7684_u4E24_u79CD_u6280_u672F" class="headerlink" title="保存会话数据的两种技术"></a><strong>保存会话数据的两种技术</strong></h2><h3 id="cookie_u673A_u5236"><a href="#cookie_u673A_u5236" class="headerlink" title="cookie机制"></a>cookie机制</h3><blockquote>
 <p>1.Cookie是客户端技术。理论上，一个用户的所有请求操作都应该属于同一个会话，而另一个用户的所有请求操作则应该属于另一个会话，二者不能混淆。例如，用户A在超市购买的任何商品都应该放在A的购物车内，不论是用户A什么时间购买的，这都是属于同一个会话的，不能放入用户B或用户C的购物车内，这不属于同一个会话。<br>2.而Web应用程序是使用HTTP协议传输数据的。HTTP协议是无状态的协议。一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接。这就意味着服务器无法从连接上跟踪会话。即用户A购买了一件商品放入购物车内，当再次购买商品时服务器已经无法判断该购买行为是属于用户A的会话还是用户B的会话了。要跟踪该会话，必须引入一种机制。<br>3.Cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态。  </p>
@@ -102,7 +102,7 @@ String id = request.getParameter(<span class="string">"id"</span>);
     request.getRequestDispatcher(<span class="string">"/Ok"</span>).forward(request, response);
 }
 </code></pre>
-<p>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie2/src/com/huangxin/view/Login.java" target="_blank" rel="external">Github地址：登陆页面</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie2/src/com/huangxin/controller/LoginCl.java" target="_blank" rel="external">Github地址：cookie处理</a></em></strong>  </p>
+<p>删除cookie<code>cookie.setMaxAge(0)</code>即可<br>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie2/src/com/huangxin/view/Login.java" target="_blank" rel="external">Github地址：登陆页面</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/cookie2/src/com/huangxin/controller/LoginCl.java" target="_blank" rel="external">Github地址：cookie处理</a></em></strong>  </p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="u4F1A_u8BDD_u6982_u5FF5"><a href="#u4F1A_u8BDD_u6982_u5FF5" class="headerlink" title="会话概念"></a><strong>会话概念</strong></h2><p>会话可简单理解]]>
