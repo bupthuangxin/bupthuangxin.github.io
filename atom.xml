@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-16T05:59:32.000Z</updated>
+  <updated>2016-03-16T12:55:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[ServletConfig和ServletContext以及读取资源的方法]]></title>
+    <link href="http://yoursite.com/2016/03/16/ServletConfig%E5%92%8CServletContext%E5%AF%B9%E8%B1%A1%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%8F%96%E8%B5%84%E6%BA%90%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/03/16/ServletConfig和ServletContext对象以及读取资源的方法/</id>
+    <published>2016-03-16T12:41:42.000Z</published>
+    <updated>2016-03-16T12:55:07.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="ServletConfig_u5BF9_u8C61"><a href="#ServletConfig_u5BF9_u8C61" class="headerlink" title="ServletConfig对象"></a>ServletConfig对象</h3><p>当servlet配置了初始化参数后，web容器在创建servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用servlet的init方法时，将ServletConfig对象传递给servlet。进而，程序员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。  </p>
+<pre><code class="java"><span class="comment">//获得配置文档中&lt;init-param&gt;标签下name对应的value</span>
+<span class="keyword">this</span>.getServletConfig().getInitParameter(<span class="string">"name"</span>);
+<span class="comment">//获取所有初始化参数</span>
+Enumeration e = <span class="keyword">this</span>.getServletConfig().getInitParameterNames();
+<span class="keyword">while</span>(e.hasMoreElements()){
+    String name = (String) e.nextElement();
+    String value = <span class="keyword">this</span>.getServletConfig().getInitParameter(name);
+    System.out.println(name + <span class="string">"="</span> + value);
+}
+</code></pre>
+<p>一般应用于<br>1.获取字符集编码<br><code>String charset = this.getServletConfig().getInitParameter(&quot;charset&quot;);</code><br>2.获得数据库连接信息<br><code>String url = this.getServletConfig().getInitParameter(&quot;url&quot;);</code><br><code>String username = this.getServletConfig().getInitParameter(&quot;username&quot;);</code><br><code>String password = this.getServletConfig().getInitParameter(&quot;password&quot;);</code><br>3.获得配置文件<br><code>String configFile = this.getServletConfig().getInitParameter(&quot;config&quot;);</code>  </p>
+<h2 id="ServletContext_u5BF9_u8C61"><a href="#ServletContext_u5BF9_u8C61" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><p>web容器在启动时，它会为每个WEB应用程序都创建一个对应的ServletContext对象，它代表当前web应用。当应用关闭(或reload tomcat)时，自动销毁。<br><strong><em>1.多个servlet通过ServletConfig()实现数据共享</em></strong><br>由于一个web应用中的所有Servlet共享同一个ServletContext对象，因此Servlet对象之间可以通过ServletContext对象来实现通讯。ServletContext对象通常也被称之为context域对象。  </p>
+<pre><code class="java"><span class="comment">//servletContext域对象</span>
+ServletContext servletcontext = <span class="keyword">this</span>.getServletContext();
+<span class="comment">//向域中存了一个属性</span>
+servletcontext.setAttribute(<span class="string">"String"</span>,object);
+
+<span class="comment">//另一个servlet</span>
+ServletContext servletcontext = <span class="keyword">this</span>.getServletContext();
+<span class="comment">//获取域中的属性</span>
+String value = (String) context.getAttribute(<span class="string">"String"</span>);
+</code></pre>
+<p><strong><em>2.通过servletContext对象获取到整个web应用的配置信息</em></strong><br>获取单个servlet配置信息用servletConfig，当配置信息是全体时：  </p>
+<pre><code class="xml"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>name<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>huangxin<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span>
+</code></pre>
+<p>那么用 <code>this.getServletContext().getInitParameter(&quot;name&quot;)</code>,可以取出配置信息。<br><strong><em>3.通过servletContext对象实现转发</em></strong><br><code>this.getServletContext().getRequestDispatcher(&quot;/...&quot;).forward(request, response);</code><br><strong><em>4.通过servletContext对象读取资源文件</em></strong><br>在web工程中，我们一般来说，是不能采用传统方式读取配置文件的，因为相对的是jvm的启动目录(tomcat的bin目录)，所以我们要使用web绝对目录来获取配置文件的地址。<br>1）使用ServletContext的getResourceAsStream方法：返回资源文件的读取字节流  </p>
+<pre><code class="java"><span class="comment">//db.properties在webRoot目录下</span>
+InputStream in = <span class="keyword">this</span>.getServletContext().getResourceAsStream(<span class="string">"/db.properties"</span>);
+Properties prop = <span class="keyword">new</span> Properties();  
+prop.load(in);
+String url = prop.getProperty(<span class="string">"url"</span>);
+</code></pre>
+<p>2）使用ServletContext的getRealPath方法，获得文件的完整绝对路径path，再使用字节流读取path下的文件（除了可以获取数据，还可以获取资源文件的名称）  </p>
+<pre><code class="java"><span class="comment">//文件imgs在webRoot目录下</span>
+String path = <span class="keyword">this</span>.getServletContext().getRealPath(<span class="string">"/imgs/Sunset.jpg"</span>);
+FileInputStream in = <span class="keyword">new</span> FileInputStream(path);
+Properties prop = <span class="keyword">new</span> Properties();
+prop.load(in);
+String url = prop.getProperty(<span class="string">"url"</span>);
+</code></pre>
+<p>3）当资源文件放在src路径下，上述方法不可行，应该用类加载器读取  </p>
+<pre><code class="java">类名.class.getClassLoader().getResource(<span class="string">"db.properties"</span>);
+</code></pre>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="ServletConfig_u5BF9_u8C61"><a href="#ServletConfig_u5BF9_u8C61" class="headerlink" title="ServletConfig对象"></a>ServletConfig对象</h3><]]>
+    </summary>
+    
+      <category term="servlet" scheme="http://yoursite.com/tags/servlet/"/>
+    
+      <category term="Servlet" scheme="http://yoursite.com/categories/Servlet/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[会话技术session]]></title>

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/03/16/ServletConfig%E5%92%8CServletContext%E5%AF%B9%E8%B1%A1%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%8F%96%E8%B5%84%E6%BA%90%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2016-03-16T12:55:07.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/03/16/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AFsession/</loc>
     <lastmod>2016-03-16T05:59:32.000Z</lastmod>
   </url>
