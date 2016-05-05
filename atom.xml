@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-24T07:53:52.000Z</updated>
+  <updated>2016-05-05T10:50:30.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[设计模式大杂烩]]></title>
+    <link href="http://yoursite.com/2016/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%A4%A7%E6%9D%82%E7%83%A9%20/"/>
+    <id>http://yoursite.com/2016/05/05/设计模式大杂烩 /</id>
+    <published>2016-05-05T10:37:27.000Z</published>
+    <updated>2016-05-05T10:50:30.000Z</updated>
+    <content type="html"><![CDATA[<p>设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的；设计模式使代码编制真正工程化；设计模式是软件工程的基石脉络，如同大厦的结构一样。<br>LZ今天推荐一位牛人的博客，里面一共27篇关于设计模式的文章，每一个设计模式都讲解的非常清楚，且简单易懂。<br><strong><em><a href="http://www.cnblogs.com/zuoxiaolong/p/pattern26.html" target="_blank" rel="external">设计模式学习传送门</a></em></strong><br>每天看一篇，一个月轻松搞定设计模式（感觉像在做广告。- -|||）</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的；设计模式使代码编制真正工程化；设计模式是软件工程]]>
+    </summary>
+    
+      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="设计模式" scheme="http://yoursite.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Mac OS X安装Hadoop2.7和Hbase1.1]]></title>
