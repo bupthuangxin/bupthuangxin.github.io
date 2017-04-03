@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-03T11:22:59.000Z</updated>
+  <updated>2017-04-03T13:08:51.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,23 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[【置顶】机器学习学习路线 && 个人简历]]></title>
+    <link href="http://yoursite.com/2048/10/24/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%20&&%20%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/"/>
+    <id>http://yoursite.com/2048/10/24/【置顶】机器学习学习路线 && 个人简历/</id>
+    <published>2048-10-23T16:12:04.000Z</published>
+    <updated>2017-04-03T13:08:51.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="个人简历" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/"/>
+    
+      <category term="个人简历" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[设计模式大杂烩]]></title>
