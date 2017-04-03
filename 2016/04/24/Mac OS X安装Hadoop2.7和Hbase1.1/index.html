@@ -77,7 +77,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="黄鑫's blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="挖掘数据哪家强" type="application/atom+xml" />
 
 
 
@@ -94,10 +94,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac OS X安装Hadoop2.7和Hbase1.1">
 <meta property="og:url" content="http://yoursite.com/2016/04/24/Mac OS X安装Hadoop2.7和Hbase1.1/index.html">
-<meta property="og:site_name" content="黄鑫's blog">
+<meta property="og:site_name" content="挖掘数据哪家强">
 <meta property="og:description" content="由于网上安装这些大数据工具都是基于Linux的，关于Mac的文章鱼龙混杂，正好这两天成功在自己机器上安装成功伪分布式的Hadoop和Hbase，记录一下也与网友分享。    
 安装Hadoop1.安装Homebrew关于Homebrew可以查看其官网 传送门。安装Homebrew非常简单，只需下面这样的命令行:1$ ruby -e &amp;#34;$(curl -fsSL https://raw.git">
-<meta property="og:updated_time" content="2016-04-24T07:53:52.000Z">
+<meta property="og:updated_time" content="2017-04-03T11:23:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac OS X安装Hadoop2.7和Hbase1.1">
 <meta name="twitter:description" content="由于网上安装这些大数据工具都是基于Linux的，关于Mac的文章鱼龙混杂，正好这两天成功在自己机器上安装成功伪分布式的Hadoop和Hbase，记录一下也与网友分享。    
@@ -135,7 +135,7 @@
 
 
 
-  <title> Mac OS X安装Hadoop2.7和Hbase1.1 | 黄鑫's blog </title>
+  <title> Mac OS X安装Hadoop2.7和Hbase1.1 | 挖掘数据哪家强 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">黄鑫's blog</span>
+        <span class="site-title">挖掘数据哪家强</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -247,9 +247,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -283,7 +317,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄鑫's blog">
+      <meta itemprop="name" content="挖掘数据哪家强">
     </span>
 
     
@@ -381,7 +415,7 @@
         <p>由于网上安装这些大数据工具都是基于Linux的，关于Mac的文章鱼龙混杂，正好这两天成功在自己机器上安装成功伪分布式的Hadoop和Hbase，记录一下也与网友分享。    </p>
 <h2 id="u5B89_u88C5Hadoop"><a href="#u5B89_u88C5Hadoop" class="headerlink" title="安装Hadoop"></a>安装Hadoop</h2><p><strong><em>1.安装Homebrew</em></strong><br>关于Homebrew可以查看其官网 <strong><em><a href="http://brew.sh/" target="_blank" rel="external">传送门</a></em></strong>。<br>安装Homebrew非常简单，只需下面这样的命令行:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&#34;</span><br></pre></td></tr></table></figure></p>
 <p><strong><em>2.ssh localhost</em></strong><br>因为安装hadoop需要远程登入的功能,所以需要安装ssh工具。 Mac OS<br>X只需在“系统偏好设置”的“共享”的“远程登录”勾选就可以使用ssh了。关于ssh的原理可以查看相关博客 <strong><em><a href="http://blog.csdn.net/yechaodechuntian/article/details/21526757" target="_blank" rel="external">传送门</a></em></strong><br>如果没有生成过ssh公钥，就使用命令： （查看<code>~/.ssh/id_dsa</code><br> 和<code>~/.ssh/id_dsa.pub</code>存不存在就知道之前有没有生成过公钥，或者直接执行<code>ssh
- localhost</code>看能否成功）<br> 由于每次远程登陆<code>ssh localhost</code>会输入密码，所以以下命令是为了将自己的公钥存到对方的公钥保存文件夹中，避免每次输密码的麻烦:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -P &#34;&#34;  &#10;$ cat $HOME/.ssh/id_rsa.pub &#62;&#62; $HOME/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+ localhost</code>看能否成功）<br> <a id="more"></a><br> 由于每次远程登陆<code>ssh localhost</code>会输入密码，所以以下命令是为了将自己的公钥存到对方的公钥保存文件夹中，避免每次输密码的麻烦:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -P &#34;&#34;  &#10;$ cat $HOME/.ssh/id_rsa.pub &#62;&#62; $HOME/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
 <p><strong><em>3.安装Hadoop</em></strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install hadoop</span><br></pre></td></tr></table></figure></p>
 <p>这样Hadoop就安装成功了，我安装的是Hadoop2.7.1。默认下载路径是<code>/usr/local/Cellar/hadoop</code>下面。<br>接下来就是配置文件的修改：<br><code>hadoop-env.sh</code>文件在<code>/usr/local/Cellar/hadoop/2.7.1/libexec/etc/hadoop/hadoop-env.sh</code>。<br>将<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"</span><br></pre></td></tr></table></figure></p>
 <p>改为<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="</span><br></pre></td></tr></table></figure></p>
@@ -497,6 +531,12 @@
 
 
     <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58e22c7409d5491e" async = "async" ></script>
+</div>
+
       
     </div>
   </div>
@@ -818,6 +858,132 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
 
 
@@ -842,6 +1008,28 @@
 
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
