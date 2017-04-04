@@ -435,14 +435,178 @@
 </blockquote>
 </li>
 <li>《统计学习方法》李航（五星）<blockquote>
-<p>李航博士的书，里面有很多数学推导，只要明白基础的微积分，概率论以及线性代数知识，看不明白的数学知识遇见现查找就可以。博主看了几遍，很多知识都是反复看才能烂熟于心。本书主要介绍了是监督学习的分类算法，如果需要全面学习其他知识，需要配合别的书籍。强烈推荐。</p>
+<p>李航博士的书，里面有很多数学推导，只要明白基础的微积分，概率论以及线性代数知识，看不明白的数学知识遇见现查找就可以。博主看了几遍，很多知识都是反复看才能烂熟于心。本书主要介绍了是监督学习的分类算法，如果需要全面学习其他知识，需要配合别的书籍。强烈推荐。  </p>
 </blockquote>
 </li>
-<li>《机器学习》周志华（四星）<blockquote>
-<p>《统计学习方法》主要介绍监督学习，这本书介绍了非监督学习，聚类算法，PCA及一些基础知识比如交叉验证，数据预处理，已经模型评估等，还有一些学习理论，VC维等进阶知识。  </p>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2048/10/24/【置顶】机器学习学习总结 /#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/PCA主成分分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="北邮——黄鑫">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/200k.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挖掘数据哪家强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/04/PCA主成分分析/" itemprop="url">
+                  PCA主成分分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T17:15:24+08:00">
+                2017-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/04/PCA主成分分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/04/PCA主成分分析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;降维的概念，有一个很好的例子可以参考。看电视的时候屏幕上有成百上千万的像素点，那么其实每个画面都是一个上千万维度的数据；但是我们在观看的时候大脑自动把电视里面的场景放在我们所能理解的三维空间来理解，这个很自然的过程其实就是一个降维（dimensionallity reduction）的过程。</p>
+<h2 id="uFF08_u4E00_uFF09_u4E3A_u4EC0_u4E48_u8981_u964D_u7EF4_uFF1F"><a href="#uFF08_u4E00_uFF09_u4E3A_u4EC0_u4E48_u8981_u964D_u7EF4_uFF1F" class="headerlink" title="（一）为什么要降维？"></a>（一）为什么要降维？</h2><ul>
+<li>数据<br>&emsp;&emsp;当我们获取到数据之后，可以拿到数以万计的特征，那这些大量特征要全部带入模型中进行训练么？显然不是，当特征越多，训练出来的模型越复杂，训练速度也一定很慢，最终还会引起过拟合的危险，所以降维是一种解决方法。</li>
+<li>可视化<br>&emsp;&emsp;大量的特征在空间中我们可能无法显性的理解，降维之后对数据的可视化提供了帮助。  </li>
+</ul>
+<h2 id="uFF08_u4E8C_uFF09_u4E3B_u6210_u5206_u5206_u6790"><a href="#uFF08_u4E8C_uFF09_u4E3B_u6210_u5206_u5206_u6790" class="headerlink" title="（二）主成分分析"></a>（二）主成分分析</h2><p>&emsp;&emsp;PCA通过线性变换将原始数据变换为一组各维度线性无关的表示，可用于提取数据的主要特征分量，常用于高维数据的降维。</p>
+<blockquote>
+<p>PCA和LR的区别：<br>1.PCA的衡量标准是正交距离，LR的衡量标准是真实值和预测值的垂直距离。<br>2.PCA跟y值无关，只想找一个平面，使各个特征投影到这个平面后使各个点方差最大；LR是通过X去预测y。  </p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/04/PCA主成分分析/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -994,203 +1158,6 @@ String url = prop.getProperty(<span class="string">"url"</span>);
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/16/会话技术session/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="北邮——黄鑫">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/200k.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="挖掘数据哪家强">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/16/会话技术session/" itemprop="url">
-                  会话技术session
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-16T13:56:14+08:00">
-                2016-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Servlet/" itemprop="url" rel="index">
-                    <span itemprop="name">Servlet</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/16/会话技术session/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/会话技术session/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="u4F1A_u8BDD_u6982_u5FF5"><a href="#u4F1A_u8BDD_u6982_u5FF5" class="headerlink" title="会话概念"></a><strong>会话概念</strong></h2><p>会话可简单理解为：用户开一个浏览器，点击多个超链接，访问服务器多个web资源，然后关闭浏览器，整个过程称之为一个会话。<br>每个用户在使用浏览器与服务器进行会话的过程中，不可避免各自会产生一些数据，程序要想办法为每个用户保存这些数据。  </p>
-<h2 id="u4FDD_u5B58_u4F1A_u8BDD_u6570_u636E_u7684_u4E24_u79CD_u6280_u672F"><a href="#u4FDD_u5B58_u4F1A_u8BDD_u6570_u636E_u7684_u4E24_u79CD_u6280_u672F" class="headerlink" title="保存会话数据的两种技术"></a><strong>保存会话数据的两种技术</strong></h2><h3 id="cookie_u673A_u5236"><a href="#cookie_u673A_u5236" class="headerlink" title="cookie机制"></a>cookie机制</h3><blockquote>
-<p>1.Cookie是客户端技术。理论上，一个用户的所有请求操作都应该属于同一个会话，而另一个用户的所有请求操作则应该属于另一个会话，二者不能混淆。例如，用户A在超市购买的任何商品都应该放在A的购物车内，不论是用户A什么时间购买的，这都是属于同一个会话的，不能放入用户B或用户C的购物车内，这不属于同一个会话。<br>2.而Web应用程序是使用HTTP协议传输数据的。HTTP协议是无状态的协议。一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接。这就意味着服务器无法从连接上跟踪会话。即用户A购买了一件商品放入购物车内，当再次购买商品时服务器已经无法判断该购买行为是属于用户A的会话还是用户B的会话了。要跟踪该会话，必须引入一种机制。<br>3.Cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态。  </p>
-</blockquote>
-<h2 id="session_u673A_u5236"><a href="#session_u673A_u5236" class="headerlink" title="session机制"></a>session机制</h2><blockquote>
-<p>Session是服务器端技术。服务器在运行时可以为每一个用户的浏览器创建一个其独享的session对象，由于session为用户浏览器独享，所以用户在访问服务器的web资源时，可以把各自的数据放在各自的session中，当用户再去访问服务器中的其它web资源时，其它web资源再从用户各自的session中取出数据为用户服务。  </p>
-</blockquote>
-<h3 id="session_u5DE5_u4F5C_u539F_u7406"><a href="#session_u5DE5_u4F5C_u539F_u7406" class="headerlink" title="session工作原理"></a>session工作原理</h3><p>浏览器访问web服务器，web服务器访问servlet后，当第一次访问session时，就自动创建此浏览器独享的session，此session是由key-value组成，key是<code>String</code>，value是<code>object</code>。<br>当request访问servlet1时，建立此浏览器对应的session，并为此session分配<code>session id</code>，response时在cookie中回一个<code>JSESSIONID</code>(set-cookie中)，当此浏览器再次发送http请求时，会在cookie中顺带session id，服务器根据<code>id号</code>寻找与之匹配的session。  </p>
-<h3 id="u521B_u5EFAsession"><a href="#u521B_u5EFAsession" class="headerlink" title="创建session"></a>创建session</h3><pre><code class="java"><span class="comment">//获取session 当没有就自动创建</span>
-HttpSession session=request.getSession();
-<span class="comment">//给该session放入属性</span>
-session.setAttribute(<span class="string">"uname"</span>, object); 
-<span class="comment">//取出属性</span>
-String uname=(object) session.getAttribute(<span class="string">"uname"</span>);
-</code></pre>
-<p>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/session1/src/com/huangxin/Servlet1.java" target="_blank" rel="external">Github地址：创建session</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/session1/src/com/huangxin/Servlet2.java" target="_blank" rel="external">Github地址：取出session</a></em></strong>  </p>
-<h3 id="u751F_u547D_u5468_u671F"><a href="#u751F_u547D_u5468_u671F" class="headerlink" title="生命周期"></a>生命周期</h3><p>1.cookie的生命周期是单个设置的，为累计时间，而session得生命周期为整体设置，为发呆时间(只要访问一次就重新计时)。  </p>
-<pre><code class="java">HttpSession session=request.getSession();
-session.setMaxInactiveInterval(<span class="number">30</span>)<span class="comment">//30s</span>
-</code></pre>
-<p>如果想要配置单个项目的发呆时间，配置如下：  </p>
-<pre><code class="xml"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>30<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">session-config</span>&gt;</span>
-</code></pre>
-<p>2.当重启tomcat，reload或者关机时，session失效。可以强制让其失效，<code>session.invalidate()</code>一般用于安全退出，希望某个属性失效用<code>session.removeAttribute()</code>。  </p>
-<h3 id="u6848_u4F8B_uFF1A_u5229_u7528session_u5B9E_u73B0_u9A8C_u8BC1_u7801_u529F_u80FD"><a href="#u6848_u4F8B_uFF1A_u5229_u7528session_u5B9E_u73B0_u9A8C_u8BC1_u7801_u529F_u80FD" class="headerlink" title="案例：利用session实现验证码功能"></a>案例：利用session实现验证码功能</h3><p><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/mycheckcode/src/com/huangxin/Login.java" target="_blank" rel="external">Github地址：登陆页面</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/mycheckcode/src/com/huangxin/LoginCl.java" target="_blank" rel="external">Github地址：处理页面</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/mycheckcode/src/com/huangxin/CreateCode.java" target="_blank" rel="external">Github地址：创建验证码</a></em></strong><br><code>思路：创建验证码图片，并把验证码内容存入session中，再获取用户输入的验证码，将两者进行比较，若相同验证成功，进一步去数据库验证用户名和密码等信息。</code>  </p>
-<h3 id="u6848_u4F8B_uFF1Asession+cookie"><a href="#u6848_u4F8B_uFF1Asession+cookie" class="headerlink" title="案例：session+cookie"></a>案例：session+cookie</h3><p>关闭浏览器，session是不会消失的，它一直存在于服务器的内存中，只有到销毁时间过后，session才会在服务器端消失。<code>一般情况下cookie不会保存session id的，只有我们强行把session id写在cookie中浏览器端才会保存</code>，这样当我们利用<code>cookie携带session id</code>就可以访问原来已经创建好的session了。  </p>
-<pre><code class="java">HttpSession session=request.getSession();
-session.setAttribute(<span class="string">"username"</span>, <span class="string">"BUPT"</span>);
-<span class="comment">//把session id保存在cookie中</span>
-Cookie cookie=<span class="keyword">new</span> Cookie(<span class="string">"JSESSIONID"</span>,session.getId());
-cookie.setMaxAge(<span class="number">3600</span>);
-response.addCookie(cookie);
-
-<span class="comment">//访问 在此访问此项目其他的servlet时，浏览器http请求中包括了cookie信息</span>
-<span class="comment">//所以自动匹配了session，直接读取session属性即可</span>
-String name=(String) request.getSession().getAttribute(<span class="string">"username"</span>);
-</code></pre>
-<p>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/session2/src/com/huangxin/Servlet1.java" target="_blank" rel="external">Github地址：cookie+session</a></em></strong><br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/session2/src/com/huangxin/Servlet2.java" target="_blank" rel="external">Github地址：关浏览器再获取session</a></em></strong>  </p>
-<h3 id="u6848_u4F8B_uFF1A_u5F53_u7981_u7528cookie_u540E_uFF0C_u600E_u6837_u4F7F_u7528session"><a href="#u6848_u4F8B_uFF1A_u5F53_u7981_u7528cookie_u540E_uFF0C_u600E_u6837_u4F7F_u7528session" class="headerlink" title="案例：当禁用cookie后，怎样使用session"></a>案例：当禁用cookie后，怎样使用session</h3><p>由于cookie中包含session id信息，如果cookie遭到禁用的话，session也会随之无法使用，那么在用户禁用cookie后，怎么才能继续使用session呢。  </p>
-<blockquote>
-<p>利用URL重写，URL地址重写是对客户端不支持Cookie的解决方案。URL地址重写的原理是将该用户Session的id信息重写到URL地址中。服务器能够解析重写后的URL获取Session的id。这样即使客户端不支持Cookie，也可以使用Session来记录用户状态。HttpServletResponse类提供了encodeURL(Stringurl)实现URL地址重写。  </p>
-</blockquote>
-<p><code>String url=response.encodeURL(&quot;/myCart/BuyBookCl?id=1&amp;name=java&quot;);</code><br>该方法会自动判断客户端是否支持Cookie。如果客户端支持Cookie，会将URL原封不动地输出来。如果客户端不支持Cookie，则会将用户Session的id重写到URL中。<br><code>/myCart/BuyBookCl;jsessionid=0CCD096E7F8D97B0BE608AFDC3E1931E?id=1&amp;name=java</code><br>具体代码请参考：<br><strong><em><a href="https://github.com/bupthuangxin/Servlet-studyDemo/tree/master/myCart/src/com/huangxin" target="_blank" rel="external">Github地址：购物车项目</a></em></strong>  </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1240,7 +1207,7 @@ String name=(String) request.getSession().getAttribute(<span class="string">"use
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1251,7 +1218,7 @@ String name=(String) request.getSession().getAttribute(<span class="string">"use
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1262,7 +1229,7 @@ String name=(String) request.getSession().getAttribute(<span class="string">"use
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

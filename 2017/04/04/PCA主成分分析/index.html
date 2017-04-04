@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="servlet," />
+  <meta name="keywords" content="PCA 降维," />
 
 
 
@@ -89,31 +89,22 @@
 
 
 
-<meta name="description" content="Servlet工作原理
-浏览器向web服务器发送http请求
-web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置
-web服务器创建HttpServletRequest对象，将http请求封装在里面
-web服务器创建HttpServletResponse对象
-创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPo">
+<meta name="description" content="&amp;emsp;&amp;emsp;降维的概念，有一个很好的例子可以参考。看电视的时候屏幕上有成百上千万的像素点，那么其实每个画面都是一个上千万维度的数据；但是我们在观看的时候大脑自动把电视里面的场景放在我们所能理解的三维空间来理解，这个很自然的过程其实就是一个降维（dimensionallity reduction）的过程。
+（一）为什么要降维？
+数据&amp;emsp;&amp;emsp;当我们获取到数据之后，可以拿到数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="servlet生命周期及web.xml配置">
-<meta property="og:url" content="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/index.html">
+<meta property="og:title" content="PCA主成分分析">
+<meta property="og:url" content="http://yoursite.com/2017/04/04/PCA主成分分析/index.html">
 <meta property="og:site_name" content="挖掘数据哪家强">
-<meta property="og:description" content="Servlet工作原理
-浏览器向web服务器发送http请求
-web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置
-web服务器创建HttpServletRequest对象，将http请求封装在里面
-web服务器创建HttpServletResponse对象
-创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPo">
-<meta property="og:updated_time" content="2016-03-13T14:57:15.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;降维的概念，有一个很好的例子可以参考。看电视的时候屏幕上有成百上千万的像素点，那么其实每个画面都是一个上千万维度的数据；但是我们在观看的时候大脑自动把电视里面的场景放在我们所能理解的三维空间来理解，这个很自然的过程其实就是一个降维（dimensionallity reduction）的过程。
+（一）为什么要降维？
+数据&amp;emsp;&amp;emsp;当我们获取到数据之后，可以拿到数">
+<meta property="og:updated_time" content="2017-04-04T15:10:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="servlet生命周期及web.xml配置">
-<meta name="twitter:description" content="Servlet工作原理
-浏览器向web服务器发送http请求
-web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置
-web服务器创建HttpServletRequest对象，将http请求封装在里面
-web服务器创建HttpServletResponse对象
-创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPo">
+<meta name="twitter:title" content="PCA主成分分析">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;降维的概念，有一个很好的例子可以参考。看电视的时候屏幕上有成百上千万的像素点，那么其实每个画面都是一个上千万维度的数据；但是我们在观看的时候大脑自动把电视里面的场景放在我们所能理解的三维空间来理解，这个很自然的过程其实就是一个降维（dimensionallity reduction）的过程。
+（一）为什么要降维？
+数据&amp;emsp;&amp;emsp;当我们获取到数据之后，可以拿到数">
 
 
 
@@ -141,13 +132,13 @@ web服务器创建HttpServletResponse对象
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/04/PCA主成分分析/"/>
 
 
 
 
 
-  <title> servlet生命周期及web.xml配置 | 挖掘数据哪家强 </title>
+  <title> PCA主成分分析 | 挖掘数据哪家强 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -330,7 +321,7 @@ web服务器创建HttpServletResponse对象
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/PCA主成分分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="北邮——黄鑫">
@@ -351,7 +342,7 @@ web服务器创建HttpServletResponse对象
             
             
               
-                servlet生命周期及web.xml配置
+                PCA主成分分析
               
             
           </h1>
@@ -366,8 +357,8 @@ web服务器创建HttpServletResponse对象
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-13T22:32:02+08:00">
-                2016-03-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T17:15:24+08:00">
+                2017-04-04
               </time>
             
 
@@ -389,8 +380,8 @@ web服务器创建HttpServletResponse对象
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Servlet/" itemprop="url" rel="index">
-                    <span itemprop="name">Servlet</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -407,8 +398,8 @@ web服务器创建HttpServletResponse对象
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/13/servlet生命周期及web.xml配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/servlet生命周期及web.xml配置/" itemprop="commentCount"></span>
+                <a href="/2017/04/04/PCA主成分分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/04/PCA主成分分析/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,21 +425,30 @@ web服务器创建HttpServletResponse对象
       
 
       
-        <h2 id="Servlet_u5DE5_u4F5C_u539F_u7406"><a href="#Servlet_u5DE5_u4F5C_u539F_u7406" class="headerlink" title="Servlet工作原理"></a><strong>Servlet工作原理</strong></h2><ul>
-<li>浏览器向web服务器发送http请求</li>
-<li>web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置</li>
-<li>web服务器创建HttpServletRequest对象，将http请求封装在里面</li>
-<li>web服务器创建HttpServletResponse对象</li>
-<li>创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPost()方法</li>
-<li>HttpServlet调用doGet()和doPost()的HttpServletRequest的有关方法获取http请求</li>
-<li>HttpServlet调用doGet()和doPost()的HttpServletResponse的有关方法生成响应数据</li>
-<li>web服务器将HttpServletResponse对象分解为http请求</li>
-<li>浏览器接收http请求</li>
-<li>destroy()方法也只调用一次，当reload，关闭tomcat或者关机等时</li>
+        <p>&emsp;&emsp;降维的概念，有一个很好的例子可以参考。看电视的时候屏幕上有成百上千万的像素点，那么其实每个画面都是一个上千万维度的数据；但是我们在观看的时候大脑自动把电视里面的场景放在我们所能理解的三维空间来理解，这个很自然的过程其实就是一个降维（dimensionallity reduction）的过程。</p>
+<h2 id="uFF08_u4E00_uFF09_u4E3A_u4EC0_u4E48_u8981_u964D_u7EF4_uFF1F"><a href="#uFF08_u4E00_uFF09_u4E3A_u4EC0_u4E48_u8981_u964D_u7EF4_uFF1F" class="headerlink" title="（一）为什么要降维？"></a>（一）为什么要降维？</h2><ul>
+<li>数据<br>&emsp;&emsp;当我们获取到数据之后，可以拿到数以万计的特征，那这些大量特征要全部带入模型中进行训练么？显然不是，当特征越多，训练出来的模型越复杂，训练速度也一定很慢，最终还会引起过拟合的危险，所以降维是一种解决方法。</li>
+<li>可视化<br>&emsp;&emsp;大量的特征在空间中我们可能无法显性的理解，降维之后对数据的可视化提供了帮助。  </li>
 </ul>
-<h2 id="web-xml_u914D_u7F6E"><a href="#web-xml_u914D_u7F6E" class="headerlink" title="web.xml配置"></a><strong>web.xml配置</strong></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Servlet名字<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>此servlet全路径<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 定义参数 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>vision<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>1.0<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="title">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Servlet名字<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/Servlet名字<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-_u81EA_u52A8_u521D_u59CB_u5316"><a href="#1-_u81EA_u52A8_u521D_u59CB_u5316" class="headerlink" title="1.自动初始化"></a>1.自动初始化</h3><p>当配置中无<code>&lt;load-on-startup&gt;&lt;/load-on-startup&gt;</code>时，只有第一次访问此servlet时才会实例化并调用init()方法，当配置了<code>&lt;load-on-startup&gt;&lt;/load-on-startup&gt;</code>后，只要开启web服务器就会调用init()方法，设置的整数值越大，表示优先级越大。<br>相关代码请参考：<br><strong><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject/src/com/hsp/servlet/MyInitServlet1.java" target="_blank" rel="external">Github地址: init初始化代码</a></strong><br><strong><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject/src/com/hsp/model/SendEmailThread.java" target="_blank" rel="external">Github地址: 发邮件代码</a></strong>  </p>
-<h3 id="2-_u8BFB_u53D6_u521D_u59CB_u5316_u53C2_u6570"><a href="#2-_u8BFB_u53D6_u521D_u59CB_u5316_u53C2_u6570" class="headerlink" title="2.读取初始化参数"></a>2.读取初始化参数</h3><p>读取特定名字的参数：<br><code>this.getServletConfig().getInitParameter(&quot;名字&quot;)</code><br>获取所有参数名字：<br><code>this.getServletConfig().getInitParameterNames()</code><br>相关代码请参考：<br><strong><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject/src/com/hsp/servlet/ServletConfigTest.java" target="_blank" rel="external">Github地址: 读取初始化参数</a></strong>  </p>
+<h2 id="uFF08_u4E8C_uFF09_u4E3B_u6210_u5206_u5206_u6790"><a href="#uFF08_u4E8C_uFF09_u4E3B_u6210_u5206_u5206_u6790" class="headerlink" title="（二）主成分分析"></a>（二）主成分分析</h2><p>&emsp;&emsp;PCA通过线性变换将原始数据变换为一组各维度线性无关的表示，可用于提取数据的主要特征分量，常用于高维数据的降维。</p>
+<blockquote>
+<p>PCA和LR的区别：<br>1.PCA的衡量标准是正交距离，LR的衡量标准是真实值和预测值的垂直距离。<br>2.PCA跟y值无关，只想找一个平面，使各个特征投影到这个平面后使各个点方差最大；LR是通过X去预测y。  </p>
+</blockquote>
+<a id="more"></a>  
+<h2 id="uFF08_u4E09_uFF09PCA_u7B80_u6613_u6570_u5B66_u63A8_u5BFC"><a href="#uFF08_u4E09_uFF09PCA_u7B80_u6613_u6570_u5B66_u63A8_u5BFC" class="headerlink" title="（三）PCA简易数学推导"></a>（三）PCA简易数学推导</h2><h3 id="u6570_u5B66_u77E5_u8BC6_u56DE_u5FC6"><a href="#u6570_u5B66_u77E5_u8BC6_u56DE_u5FC6" class="headerlink" title="数学知识回忆"></a>数学知识回忆</h3><p>&emsp;&emsp;内积的定义：<br>$$(a_1,a_2,\cdots,a_n)^\mathsf{T}\cdot (b_1,b_2,\cdots,b_n)^\mathsf{T}=a_1b_1+a_2b_2+\cdots+a_nb_n$$<br>内积可以将两个向量计算成一个实数。假设向量A和B都是二维向量，\(A=(x_1,y_1)\)，\(B=(x_2,y_2)\)，其在二维坐标系中是两条有向线段。当A和B的夹角是a，则A到B的投影矢量长度为\(|A|cos(a)\)，其中\(|A|=\sqrt{x_1^2+y_1^2}\)是A的标量长度。这样我们就可以看出投影和内积的关系了。\(A\cdot B=|A||B|cos(a)\)即A和B的内积就是A投影到B的长度乘以B的模，若假设B的模为1，那么<br>\(A\cdot B=|A|cos(a)\)即<strong><em>设向量B的模为1，则A与B的内积值等于A向B所在直线投影的矢量长度</em></strong>比如向量(5，6)其实就是此向量向x轴和y轴的单位向量做的投影，其长度分别为5和6为，即(x,y)可以表示为\(x(1,0)^\mathsf{T}+y(0,1)^\mathsf{T}\)，这里的(1,0)和(0,1)就是坐标系中的一组基。所以<strong><em>描述向量就是先确定一组基，给出在基所在的各个直线的投影长度。</em></strong><br>&emsp;&emsp;当然我们可以在坐标系中选择另外一组正交基（可以选择非正交基，但是正交基理解直观且性质好），那么向量(5,6)在新的一组基中的表示就会发生变化。得到新的坐标很容易，先构造一个矩阵，两行为两个基，乘以原向量，其结果就是新基的坐标。<strong><em>一般的，如果我们有M个N维向量，想将其变换为由R个N维向量表示的新空间中，那么首先将R个基按行组成矩阵A，然后将向量按列组成矩阵B，那么两矩阵的乘积AB就是变换结果，其中AB的第m列为A中第m列变换后的结果。</em></strong>这里的R可以小于N，R就是决定了变换后数据的维度。即R×N的矩阵乘以N×M的矩阵得到R×M的矩阵，意味着M个R维向量。</p>
+<h3 id="u4F18_u5316_u76EE_u6807"><a href="#u4F18_u5316_u76EE_u6807" class="headerlink" title="优化目标"></a>优化目标</h3><p>&emsp;&emsp;选择不同的基可以对同样一组数据给出不同的表示，而且如果基的数量少于向量本身的维数，则可以达到降维的效果。但是还有一个最关键的问题：如何选择基才是最优的。或者说，如果我们有一组N维向量，现在要将其降到K维（K小于N），那么我们应该如何选择K个基才能最大程度保留原有的信息？<br>&emsp;&emsp;直观的想法是投影到此基的新值尽可能的分散。分散程度可以用方差表示，假设均值为0。这是二维变换成一维，如果更高维的，找到第一个基之后，如何选择第二个基呢，直观的想法是让两个字段尽可能多的表示原始信息，不希望它们存在相关性，协方差可以表示相关性。所以至此优化的目标变成<strong><em>将一组N维向量降为K维，其目标是选择K个单位正交基，使得原始数据变换到这组基上后，各字段两两间协方差为0，而字段的方差则尽可能大。</em></strong></p>
+<h3 id="u4F18_u5316_u8FC7_u7A0B"><a href="#u4F18_u5316_u8FC7_u7A0B" class="headerlink" title="优化过程"></a>优化过程</h3><p>&emsp;&emsp;数学很神奇，设我们有m个n维数据记录，将其按列排成n乘m的矩阵X，设\(C=\frac{1}{m}XX^\mathsf{T}\)，则C是一个对称矩阵，其对角线分别个各个字段的方差，而第i行j列和j行i列元素相同，表示i和j两个字段的协方差。根据优化目标，只需将协方差矩阵除对角元素外其他元素都为0，且对角元素按从大到小排列。设原始数据矩阵X对应的协方差矩阵为C，而P是一组基按行组成的矩阵，设Y=PX，则Y为X对P做基变换后的数据。设Y的协方差矩阵为D，\(D=PCP^\mathsf{T}\)，优化目标变成了<strong><em>寻找一个矩阵P，满足\(PCP^\mathsf{T}\)是一个对角矩阵，并且对角元素按从大到小依次排列，那么P的前K行就是要寻找的基，用P的前K行组成的矩阵乘以X就使得X从N维降到了K维并满足上述优化条件。</em></strong>根据线性代数知识可知，P是协方差矩阵的特征向量单位化后按行排列出的矩阵，其中每一行都是C的一个特征向量。如果设P按照特征值从大到小，将特征向量从上到下排列，则用P的前K行组成的矩阵乘以原始数据矩阵X，就得到了我们需要的降维后的数据矩阵Y。</p>
+<h3 id="u7B97_u6CD5_u6B65_u9AA4_u603B_u7ED3"><a href="#u7B97_u6CD5_u6B65_u9AA4_u603B_u7ED3" class="headerlink" title="算法步骤总结"></a>算法步骤总结</h3><p>&emsp;&emsp;设有m条n维数据。</p>
+<ol>
+<li>将原始数据按列组成n行m列矩阵X</li>
+<li>将X的每一行（代表一个属性字段）进行零均值化，即减去这一行的均值</li>
+<li>求出协方差矩阵\(C=\frac{1}{m}XX^\mathsf{T}\)</li>
+<li>求出协方差矩阵的特征值及对应的特征向量</li>
+<li>将特征向量按对应特征值大小从上到下按行排列成矩阵，取前k行组成矩阵P</li>
+<li>Y=PX即为降维到k维后的数据  </li>
+</ol>
+<h2 id="uFF08_u56DB_uFF09_u4E3B_u6210_u5206_u7684_u4E2A_u6570_u9009_u62E9"><a href="#uFF08_u56DB_uFF09_u4E3B_u6210_u5206_u7684_u4E2A_u6570_u9009_u62E9" class="headerlink" title="（四）主成分的个数选择"></a>（四）主成分的个数选择</h2><p>&emsp;&emsp;可以从错误率来考虑主成分的个数，可以设置一个阈值，当错误率小于阈值时，说明这样选取主成分是可行的。</p>
+<h2 id="uFF08_u4E94_uFF09_u5EFA_u8BAE"><a href="#uFF08_u4E94_uFF09_u5EFA_u8BAE" class="headerlink" title="（五）建议"></a>（五）建议</h2><p>&emsp;&emsp; PCA可以提出主成分解决过拟合问题，但不要用PCA解决overfitting，还是用其他的方法比如正则化去减小过拟合。</p>
 
       
     </div>
@@ -499,7 +499,7 @@ web服务器创建HttpServletResponse对象
       
         <div class="post-tags">
           
-            <a href="/tags/servlet/" rel="tag"># servlet</a>
+            <a href="/tags/PCA-降维/" rel="tag"># PCA 降维</a>
           
         </div>
       
@@ -512,8 +512,8 @@ web服务器创建HttpServletResponse对象
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/06/git总结/" rel="next" title="git总结">
-                <i class="fa fa-chevron-left"></i> git总结
+              <a href="/2016/04/24/Mac OS X安装Hadoop2.7和Hbase1.1/" rel="next" title="Mac OS X安装Hadoop2.7和Hbase1.1">
+                <i class="fa fa-chevron-left"></i> Mac OS X安装Hadoop2.7和Hbase1.1
               </a>
             
           </div>
@@ -522,8 +522,8 @@ web服务器创建HttpServletResponse对象
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/14/HTTP协议详解/" rel="prev" title="HTTP协议详解">
-                HTTP协议详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2048/10/24/【置顶】机器学习学习总结 /" rel="prev" title="【置顶】机器学习学习总结">
+                【置顶】机器学习学习总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,8 +556,8 @@ web服务器创建HttpServletResponse对象
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/13/servlet生命周期及web.xml配置/"
-           data-title="servlet生命周期及web.xml配置" data-url="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/">
+      <div class="ds-thread" data-thread-key="2017/04/04/PCA主成分分析/"
+           data-title="PCA主成分分析" data-url="http://yoursite.com/2017/04/04/PCA主成分分析/">
       </div>
     
   </div>
@@ -712,7 +712,7 @@ web服务器创建HttpServletResponse对象
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet_u5DE5_u4F5C_u539F_u7406"><span class="nav-number">1.</span> <span class="nav-text">Servlet工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web-xml_u914D_u7F6E"><span class="nav-number">2.</span> <span class="nav-text">web.xml配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_u81EA_u52A8_u521D_u59CB_u5316"><span class="nav-number">2.1.</span> <span class="nav-text">1.自动初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_u8BFB_u53D6_u521D_u59CB_u5316_u53C2_u6570"><span class="nav-number">2.2.</span> <span class="nav-text">2.读取初始化参数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#uFF08_u4E00_uFF09_u4E3A_u4EC0_u4E48_u8981_u964D_u7EF4_uFF1F"><span class="nav-number">1.</span> <span class="nav-text">（一）为什么要降维？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uFF08_u4E8C_uFF09_u4E3B_u6210_u5206_u5206_u6790"><span class="nav-number">2.</span> <span class="nav-text">（二）主成分分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uFF08_u4E09_uFF09PCA_u7B80_u6613_u6570_u5B66_u63A8_u5BFC"><span class="nav-number">3.</span> <span class="nav-text">（三）PCA简易数学推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6570_u5B66_u77E5_u8BC6_u56DE_u5FC6"><span class="nav-number">3.1.</span> <span class="nav-text">数学知识回忆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F18_u5316_u76EE_u6807"><span class="nav-number">3.2.</span> <span class="nav-text">优化目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F18_u5316_u8FC7_u7A0B"><span class="nav-number">3.3.</span> <span class="nav-text">优化过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7B97_u6CD5_u6B65_u9AA4_u603B_u7ED3"><span class="nav-number">3.4.</span> <span class="nav-text">算法步骤总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uFF08_u56DB_uFF09_u4E3B_u6210_u5206_u7684_u4E2A_u6570_u9009_u62E9"><span class="nav-number">4.</span> <span class="nav-text">（四）主成分的个数选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uFF08_u4E94_uFF09_u5EFA_u8BAE"><span class="nav-number">5.</span> <span class="nav-text">（五）建议</span></a></li></ol></div>
             
 
           </div>

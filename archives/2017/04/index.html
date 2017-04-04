@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="servlet," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -89,31 +89,15 @@
 
 
 
-<meta name="description" content="Servlet工作原理
-浏览器向web服务器发送http请求
-web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置
-web服务器创建HttpServletRequest对象，将http请求封装在里面
-web服务器创建HttpServletResponse对象
-创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="servlet生命周期及web.xml配置">
-<meta property="og:url" content="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/index.html">
+<meta name="description" content="Walk steps step by step">
+<meta property="og:type" content="website">
+<meta property="og:title" content="挖掘数据哪家强">
+<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
 <meta property="og:site_name" content="挖掘数据哪家强">
-<meta property="og:description" content="Servlet工作原理
-浏览器向web服务器发送http请求
-web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置
-web服务器创建HttpServletRequest对象，将http请求封装在里面
-web服务器创建HttpServletResponse对象
-创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPo">
-<meta property="og:updated_time" content="2016-03-13T14:57:15.000Z">
+<meta property="og:description" content="Walk steps step by step">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="servlet生命周期及web.xml配置">
-<meta name="twitter:description" content="Servlet工作原理
-浏览器向web服务器发送http请求
-web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置
-web服务器创建HttpServletRequest对象，将http请求封装在里面
-web服务器创建HttpServletResponse对象
-创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPo">
+<meta name="twitter:title" content="挖掘数据哪家强">
+<meta name="twitter:description" content="Walk steps step by step">
 
 
 
@@ -141,13 +125,13 @@ web服务器创建HttpServletResponse对象
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2017/04/"/>
 
 
 
 
 
-  <title> servlet生命周期及web.xml配置 | 挖掘数据哪家强 </title>
+  <title> 归档 | 挖掘数据哪家强 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -172,7 +156,7 @@ web服务器创建HttpServletResponse对象
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,233 +304,66 @@ web服务器创建HttpServletResponse对象
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="北邮——黄鑫">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/200k.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="挖掘数据哪家强">
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 13 篇日志。 继续努力。
     </span>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                servlet生命周期及web.xml配置
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-13T22:32:02+08:00">
-                2016-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Servlet/" itemprop="url" rel="index">
-                    <span itemprop="name">Servlet</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/13/servlet生命周期及web.xml配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/servlet生命周期及web.xml配置/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
 
       
       
-
       
-        <h2 id="Servlet_u5DE5_u4F5C_u539F_u7406"><a href="#Servlet_u5DE5_u4F5C_u539F_u7406" class="headerlink" title="Servlet工作原理"></a><strong>Servlet工作原理</strong></h2><ul>
-<li>浏览器向web服务器发送http请求</li>
-<li>web服务器解析主机地址，解析webapps，解析资源名，向web.xml查询servlet位置</li>
-<li>web服务器创建HttpServletRequest对象，将http请求封装在里面</li>
-<li>web服务器创建HttpServletResponse对象</li>
-<li>创建servlet实例，第一调用时执行init()，只执行一次，之后调用doGet()和doPost()方法</li>
-<li>HttpServlet调用doGet()和doPost()的HttpServletRequest的有关方法获取http请求</li>
-<li>HttpServlet调用doGet()和doPost()的HttpServletResponse的有关方法生成响应数据</li>
-<li>web服务器将HttpServletResponse对象分解为http请求</li>
-<li>浏览器接收http请求</li>
-<li>destroy()方法也只调用一次，当reload，关闭tomcat或者关机等时</li>
-</ul>
-<h2 id="web-xml_u914D_u7F6E"><a href="#web-xml_u914D_u7F6E" class="headerlink" title="web.xml配置"></a><strong>web.xml配置</strong></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Servlet名字<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>此servlet全路径<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 定义参数 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>vision<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>1.0<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="title">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Servlet名字<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/Servlet名字<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-_u81EA_u52A8_u521D_u59CB_u5316"><a href="#1-_u81EA_u52A8_u521D_u59CB_u5316" class="headerlink" title="1.自动初始化"></a>1.自动初始化</h3><p>当配置中无<code>&lt;load-on-startup&gt;&lt;/load-on-startup&gt;</code>时，只有第一次访问此servlet时才会实例化并调用init()方法，当配置了<code>&lt;load-on-startup&gt;&lt;/load-on-startup&gt;</code>后，只要开启web服务器就会调用init()方法，设置的整数值越大，表示优先级越大。<br>相关代码请参考：<br><strong><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject/src/com/hsp/servlet/MyInitServlet1.java" target="_blank" rel="external">Github地址: init初始化代码</a></strong><br><strong><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject/src/com/hsp/model/SendEmailThread.java" target="_blank" rel="external">Github地址: 发邮件代码</a></strong>  </p>
-<h3 id="2-_u8BFB_u53D6_u521D_u59CB_u5316_u53C2_u6570"><a href="#2-_u8BFB_u53D6_u521D_u59CB_u5316_u53C2_u6570" class="headerlink" title="2.读取初始化参数"></a>2.读取初始化参数</h3><p>读取特定名字的参数：<br><code>this.getServletConfig().getInitParameter(&quot;名字&quot;)</code><br>获取所有参数名字：<br><code>this.getServletConfig().getInitParameterNames()</code><br>相关代码请参考：<br><strong><a href="https://github.com/bupthuangxin/Servlet-studyDemo/blob/master/servletProject/src/com/hsp/servlet/ServletConfigTest.java" target="_blank" rel="external">Github地址: 读取初始化参数</a></strong>  </p>
 
-      
-    </div>
-
-    <div>
       
         
-
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>看完对各位客官大爷有帮助，请打赏么么哒</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wechat.jpeg" alt="北邮——黄鑫 WeChat Pay"/>
-          <p>微信打赏</p>
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
         </div>
       
       
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="北邮——黄鑫 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
 
       
-    </div>
 
-    <div>
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/servlet/" rel="tag"># servlet</a>
-          
-        </div>
-      
-
-      
+            <a class="post-title-link" href="/2017/04/04/PCA主成分分析/" itemprop="url">
+              
+                <span itemprop="name">PCA主成分分析</span>
+              
+            </a>
         
-      
+      </h1>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/02/06/git总结/" rel="next" title="git总结">
-                <i class="fa fa-chevron-left"></i> git总结
-              </a>
-            
-          </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-04T17:15:24+08:00"
+              content="2017-04-04" >
+          04-04
+        </time>
+      </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/14/HTTP协议详解/" rel="prev" title="HTTP协议详解">
-                HTTP协议详解 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58e22c7409d5491e" async = "async" ></script>
-</div>
+    
 
-      
-    </div>
-  </div>
+  </section>
+
+  
+
 
 
           </div>
@@ -554,14 +371,6 @@ web服务器创建HttpServletResponse对象
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/03/13/servlet生命周期及web.xml配置/"
-           data-title="servlet生命周期及web.xml配置" data-url="http://yoursite.com/2016/03/13/servlet生命周期及web.xml配置/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -581,17 +390,8 @@ web服务器创建HttpServletResponse对象
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/200k.jpg"
@@ -702,22 +502,6 @@ web服务器创建HttpServletResponse对象
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet_u5DE5_u4F5C_u539F_u7406"><span class="nav-number">1.</span> <span class="nav-text">Servlet工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web-xml_u914D_u7F6E"><span class="nav-number">2.</span> <span class="nav-text">web.xml配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_u81EA_u52A8_u521D_u59CB_u5316"><span class="nav-number">2.1.</span> <span class="nav-text">1.自动初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_u8BFB_u53D6_u521D_u59CB_u5316_u53C2_u6570"><span class="nav-number">2.2.</span> <span class="nav-text">2.读取初始化参数</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -832,9 +616,11 @@ web服务器创建HttpServletResponse对象
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
