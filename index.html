@@ -487,6 +487,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/生成学习与判别学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="北邮——黄鑫">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/200k.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挖掘数据哪家强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/11/生成学习与判别学习/" itemprop="url">
+                  生成学习与判别学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T00:06:47+08:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/11/生成学习与判别学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/11/生成学习与判别学习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="u5224_u522B_u5B66_u4E60_u4E0E_u751F_u6210_u5B66_u4E60"><a href="#u5224_u522B_u5B66_u4E60_u4E0E_u751F_u6210_u5B66_u4E60" class="headerlink" title="判别学习与生成学习"></a>判别学习与生成学习</h2><blockquote>
+<p>第二遍看吴恩达的视频，总结一下关于生成模型和判别模型。<br>以下是几点它们之间的对比。</p>
+</blockquote>
+<hr>
+<p><strong>生成模型</strong>（Generaive Model）一般以概率的方式描述了数据的产生方式，通过对模型采样就可以产生数据。  </p>
+<h2 id="u5224_u522B_u6A21_u578B_uFF08Discriminative_Model_uFF09_u5BF9_u6570_u636E_u4E4B_u95F4_u7684_u6620_u5C04_u5173_u7CFB_u5EFA_u6A21_uFF0C_u800C_u4E0D_u8003_u8651_u6570_u636E_u672C_u8EAB_u662F_u5982_u4F55_u751F_u6210_u7684_u3002_u5224_u522B_u6A21_u578B_u53EF_u4EE5_u6839_u636E_u7ED9_u5B9A_u7684_u6570_u636Ex_u9884_u6D4B_u5BF9_u5E94_u7684y_uFF08_u56DE_u5F52_uFF09_uFF0C_u6216_u6839_u636E_u4E0D_u540C_u7684_u6620_u5C04_u7ED3_u679Cy_u6765_u533A_u5206_u7ED9_u5B9A_u7684_u6570_u636Ex_uFF08_u5206_u7C7B_uFF09_u3002_u4F46_u6A21_u578B_u81EA_u8EAB_u5E76_u4E0D_u80FD_u4EA7_u751F_u6570_u636E_u3002"><a href="#u5224_u522B_u6A21_u578B_uFF08Discriminative_Model_uFF09_u5BF9_u6570_u636E_u4E4B_u95F4_u7684_u6620_u5C04_u5173_u7CFB_u5EFA_u6A21_uFF0C_u800C_u4E0D_u8003_u8651_u6570_u636E_u672C_u8EAB_u662F_u5982_u4F55_u751F_u6210_u7684_u3002_u5224_u522B_u6A21_u578B_u53EF_u4EE5_u6839_u636E_u7ED9_u5B9A_u7684_u6570_u636Ex_u9884_u6D4B_u5BF9_u5E94_u7684y_uFF08_u56DE_u5F52_uFF09_uFF0C_u6216_u6839_u636E_u4E0D_u540C_u7684_u6620_u5C04_u7ED3_u679Cy_u6765_u533A_u5206_u7ED9_u5B9A_u7684_u6570_u636Ex_uFF08_u5206_u7C7B_uFF09_u3002_u4F46_u6A21_u578B_u81EA_u8EAB_u5E76_u4E0D_u80FD_u4EA7_u751F_u6570_u636E_u3002" class="headerlink" title="判别模型（Discriminative Model）对数据之间的映射关系建模，而不考虑数据本身是如何生成的。判别模型可以根据给定的数据x预测对应的y（回归），或根据不同的映射结果y来区分给定的数据x（分类）。但模型自身并不能产生数据。"></a><strong>判别模型</strong>（Discriminative Model）对数据之间的映射关系建模，而不考虑数据本身是如何生成的。判别模型可以根据给定的数据x预测对应的y（回归），或根据不同的映射结果y来区分给定的数据x（分类）。但模型自身并不能产生数据。</h2><p><strong>生成模型</strong>是对条件概率p(x|y)和先验概率p(y)建模，通过贝叶斯公式 间接求目标变量的概率。</p>
+<h2 id="u5224_u522B_u6A21_u578B_u662F_u5BF9p_28y_7Cx_29_u5EFA_u6A21_uFF0C_u76F4_u63A5_u6C42_u51FA_u76EE_u6807_u53D8_u91CF_u7684_u6982_u7387_u3002"><a href="#u5224_u522B_u6A21_u578B_u662F_u5BF9p_28y_7Cx_29_u5EFA_u6A21_uFF0C_u76F4_u63A5_u6C42_u51FA_u76EE_u6807_u53D8_u91CF_u7684_u6982_u7387_u3002" class="headerlink" title="判别模型是对p(y|x)建模，直接求出目标变量的概率。"></a><strong>判别模型</strong>是对p(y|x)建模，直接求出目标变量的概率。</h2><p><strong>生成模型</strong>是对两个类别分别进行建模，用新的样例去匹配两个模型，匹配度较 高的作为新样例的类别，比如良性肿瘤与恶性肿瘤的分类，首先对两个类别分别 建模，比如分别计算两类肿瘤是否扩散的概率，计算肿瘤大小大于某个值的概率 等等；再比如狗与大象的分类，分别对狗与大象建模，比如计算体重大于某个值 的概率，鼻子长度大于某个值的概率等等。<br><strong>判别学习</strong>直接对问题进行求解，比如二类分类问题，不管是感知器算法还是LR算法，都是在空间中寻找一条直线从而把两种类别的样例分开，对于新的样例只要判断在直线的哪一侧即可；这种直接对问题求解的方法。</p>
+<h2 id="3C_21-_more_-_3E"><a href="#3C_21-_more_-_3E" class="headerlink" title="
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/11/生成学习与判别学习/#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/PCA主成分分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -959,205 +1123,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/16/ServletConfig和ServletContext对象以及读取资源的方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="北邮——黄鑫">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/200k.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="挖掘数据哪家强">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/16/ServletConfig和ServletContext对象以及读取资源的方法/" itemprop="url">
-                  ServletConfig和ServletContext以及读取资源的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-16T20:41:42+08:00">
-                2016-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Servlet/" itemprop="url" rel="index">
-                    <span itemprop="name">Servlet</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/16/ServletConfig和ServletContext对象以及读取资源的方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/ServletConfig和ServletContext对象以及读取资源的方法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="ServletConfig_u5BF9_u8C61"><a href="#ServletConfig_u5BF9_u8C61" class="headerlink" title="ServletConfig对象"></a>ServletConfig对象</h3><p>当servlet配置了初始化参数后，web容器在创建servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用servlet的init方法时，将ServletConfig对象传递给servlet。进而，程序员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。  </p>
-<pre><code class="java"><span class="comment">//获得配置文档中&lt;init-param&gt;标签下name对应的value</span>
-<span class="keyword">this</span>.getServletConfig().getInitParameter(<span class="string">"name"</span>);
-<span class="comment">//获取所有初始化参数</span>
-Enumeration e = <span class="keyword">this</span>.getServletConfig().getInitParameterNames();
-<span class="keyword">while</span>(e.hasMoreElements()){
-    String name = (String) e.nextElement();
-    String value = <span class="keyword">this</span>.getServletConfig().getInitParameter(name);
-    System.out.println(name + <span class="string">"="</span> + value);
-}
-</code></pre>
-<p>一般应用于<br>1.获取字符集编码<br><code>String charset = this.getServletConfig().getInitParameter(&quot;charset&quot;);</code><br>2.获得数据库连接信息<br><code>String url = this.getServletConfig().getInitParameter(&quot;url&quot;);</code><br><code>String username = this.getServletConfig().getInitParameter(&quot;username&quot;);</code><br><code>String password = this.getServletConfig().getInitParameter(&quot;password&quot;);</code><br>3.获得配置文件<br><code>String configFile = this.getServletConfig().getInitParameter(&quot;config&quot;);</code>  </p>
-<h2 id="ServletContext_u5BF9_u8C61"><a href="#ServletContext_u5BF9_u8C61" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><p>web容器在启动时，它会为每个WEB应用程序都创建一个对应的ServletContext对象，它代表当前web应用。当应用关闭(或reload tomcat)时，自动销毁。<br><strong><em>1.多个servlet通过ServletConfig()实现数据共享</em></strong><br>由于一个web应用中的所有Servlet共享同一个ServletContext对象，因此Servlet对象之间可以通过ServletContext对象来实现通讯。ServletContext对象通常也被称之为context域对象。  </p>
-<pre><code class="java"><span class="comment">//servletContext域对象</span>
-ServletContext servletcontext = <span class="keyword">this</span>.getServletContext();
-<span class="comment">//向域中存了一个属性</span>
-servletcontext.setAttribute(<span class="string">"String"</span>,object);
-
-<span class="comment">//另一个servlet</span>
-ServletContext servletcontext = <span class="keyword">this</span>.getServletContext();
-<span class="comment">//获取域中的属性</span>
-String value = (String) context.getAttribute(<span class="string">"String"</span>);
-</code></pre>
-<p><strong><em>2.通过servletContext对象获取到整个web应用的配置信息</em></strong><br>获取单个servlet配置信息用servletConfig，当配置信息是全体时：  </p>
-<pre><code class="xml"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>name<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>huangxin<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span>
-</code></pre>
-<p>那么用 <code>this.getServletContext().getInitParameter(&quot;name&quot;)</code>,可以取出配置信息。<br><strong><em>3.通过servletContext对象实现转发</em></strong><br><code>this.getServletContext().getRequestDispatcher(&quot;/...&quot;).forward(request, response);</code><br><strong><em>4.通过servletContext对象读取资源文件</em></strong><br>在web工程中，我们一般来说，是不能采用传统方式读取配置文件的，因为相对的是jvm的启动目录(tomcat的bin目录)，所以我们要使用web绝对目录来获取配置文件的地址。<br>1）使用ServletContext的getResourceAsStream方法：返回资源文件的读取字节流  </p>
-<pre><code class="java"><span class="comment">//db.properties在webRoot目录下</span>
-InputStream in = <span class="keyword">this</span>.getServletContext().getResourceAsStream(<span class="string">"/db.properties"</span>);
-Properties prop = <span class="keyword">new</span> Properties();  
-prop.load(in);
-String url = prop.getProperty(<span class="string">"url"</span>);
-</code></pre>
-<p>2）使用ServletContext的getRealPath方法，获得文件的完整绝对路径path，再使用字节流读取path下的文件（除了可以获取数据，还可以获取资源文件的名称）  </p>
-<pre><code class="java"><span class="comment">//文件imgs在webRoot目录下</span>
-String path = <span class="keyword">this</span>.getServletContext().getRealPath(<span class="string">"/imgs/Sunset.jpg"</span>);
-FileInputStream in = <span class="keyword">new</span> FileInputStream(path);
-Properties prop = <span class="keyword">new</span> Properties();
-prop.load(in);
-String url = prop.getProperty(<span class="string">"url"</span>);
-</code></pre>
-<p>3）当资源文件放在src路径下，上述方法不可行，应该用类加载器读取  </p>
-<pre><code class="java">类名.class.getClassLoader().getResource(<span class="string">"db.properties"</span>);
-</code></pre>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1207,7 +1172,7 @@ String url = prop.getProperty(<span class="string">"url"</span>);
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1229,7 +1194,7 @@ String url = prop.getProperty(<span class="string">"url"</span>);
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
