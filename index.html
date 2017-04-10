@@ -595,14 +595,16 @@
 
       
         
-          <h2 id="u5224_u522B_u5B66_u4E60_u4E0E_u751F_u6210_u5B66_u4E60"><a href="#u5224_u522B_u5B66_u4E60_u4E0E_u751F_u6210_u5B66_u4E60" class="headerlink" title="判别学习与生成学习"></a>判别学习与生成学习</h2><blockquote>
-<p>第二遍看吴恩达的视频，总结一下关于生成模型和判别模型。<br>以下是几点它们之间的对比。</p>
+          <h1 id="u5224_u522B_u5B66_u4E60_u4E0E_u751F_u6210_u5B66_u4E60"><a href="#u5224_u522B_u5B66_u4E60_u4E0E_u751F_u6210_u5B66_u4E60" class="headerlink" title="判别学习与生成学习"></a>判别学习与生成学习</h1><blockquote>
+<p>第二遍看吴恩达的视频，总结一下关于生成模型和判别模型。<br>以下是几点它们之间的对比。  </p>
 </blockquote>
 <hr>
-<p><strong>生成模型</strong>（Generaive Model）一般以概率的方式描述了数据的产生方式，通过对模型采样就可以产生数据。  </p>
-<h2 id="u5224_u522B_u6A21_u578B_uFF08Discriminative_Model_uFF09_u5BF9_u6570_u636E_u4E4B_u95F4_u7684_u6620_u5C04_u5173_u7CFB_u5EFA_u6A21_uFF0C_u800C_u4E0D_u8003_u8651_u6570_u636E_u672C_u8EAB_u662F_u5982_u4F55_u751F_u6210_u7684_u3002_u5224_u522B_u6A21_u578B_u53EF_u4EE5_u6839_u636E_u7ED9_u5B9A_u7684_u6570_u636Ex_u9884_u6D4B_u5BF9_u5E94_u7684y_uFF08_u56DE_u5F52_uFF09_uFF0C_u6216_u6839_u636E_u4E0D_u540C_u7684_u6620_u5C04_u7ED3_u679Cy_u6765_u533A_u5206_u7ED9_u5B9A_u7684_u6570_u636Ex_uFF08_u5206_u7C7B_uFF09_u3002_u4F46_u6A21_u578B_u81EA_u8EAB_u5E76_u4E0D_u80FD_u4EA7_u751F_u6570_u636E_u3002"><a href="#u5224_u522B_u6A21_u578B_uFF08Discriminative_Model_uFF09_u5BF9_u6570_u636E_u4E4B_u95F4_u7684_u6620_u5C04_u5173_u7CFB_u5EFA_u6A21_uFF0C_u800C_u4E0D_u8003_u8651_u6570_u636E_u672C_u8EAB_u662F_u5982_u4F55_u751F_u6210_u7684_u3002_u5224_u522B_u6A21_u578B_u53EF_u4EE5_u6839_u636E_u7ED9_u5B9A_u7684_u6570_u636Ex_u9884_u6D4B_u5BF9_u5E94_u7684y_uFF08_u56DE_u5F52_uFF09_uFF0C_u6216_u6839_u636E_u4E0D_u540C_u7684_u6620_u5C04_u7ED3_u679Cy_u6765_u533A_u5206_u7ED9_u5B9A_u7684_u6570_u636Ex_uFF08_u5206_u7C7B_uFF09_u3002_u4F46_u6A21_u578B_u81EA_u8EAB_u5E76_u4E0D_u80FD_u4EA7_u751F_u6570_u636E_u3002" class="headerlink" title="判别模型（Discriminative Model）对数据之间的映射关系建模，而不考虑数据本身是如何生成的。判别模型可以根据给定的数据x预测对应的y（回归），或根据不同的映射结果y来区分给定的数据x（分类）。但模型自身并不能产生数据。"></a><strong>判别模型</strong>（Discriminative Model）对数据之间的映射关系建模，而不考虑数据本身是如何生成的。判别模型可以根据给定的数据x预测对应的y（回归），或根据不同的映射结果y来区分给定的数据x（分类）。但模型自身并不能产生数据。</h2><p><strong>生成模型</strong>是对条件概率p(x|y)和先验概率p(y)建模，通过贝叶斯公式 间接求目标变量的概率。</p>
-<h2 id="u5224_u522B_u6A21_u578B_u662F_u5BF9p_28y_7Cx_29_u5EFA_u6A21_uFF0C_u76F4_u63A5_u6C42_u51FA_u76EE_u6807_u53D8_u91CF_u7684_u6982_u7387_u3002"><a href="#u5224_u522B_u6A21_u578B_u662F_u5BF9p_28y_7Cx_29_u5EFA_u6A21_uFF0C_u76F4_u63A5_u6C42_u51FA_u76EE_u6807_u53D8_u91CF_u7684_u6982_u7387_u3002" class="headerlink" title="判别模型是对p(y|x)建模，直接求出目标变量的概率。"></a><strong>判别模型</strong>是对p(y|x)建模，直接求出目标变量的概率。</h2><p><strong>生成模型</strong>是对两个类别分别进行建模，用新的样例去匹配两个模型，匹配度较 高的作为新样例的类别，比如良性肿瘤与恶性肿瘤的分类，首先对两个类别分别 建模，比如分别计算两类肿瘤是否扩散的概率，计算肿瘤大小大于某个值的概率 等等；再比如狗与大象的分类，分别对狗与大象建模，比如计算体重大于某个值 的概率，鼻子长度大于某个值的概率等等。<br><strong>判别学习</strong>直接对问题进行求解，比如二类分类问题，不管是感知器算法还是LR算法，都是在空间中寻找一条直线从而把两种类别的样例分开，对于新的样例只要判断在直线的哪一侧即可；这种直接对问题求解的方法。</p>
-<h2 id="3C_21-_more_-_3E"><a href="#3C_21-_more_-_3E" class="headerlink" title="
+<p><strong>生成模型</strong>（Generaive Model）一般以概率的方式描述了数据的产生方式，通过对模型采样就可以产生数据。<br><strong>判别模型</strong>（Discriminative Model）对数据之间的映射关系建模，而不考虑数据本身是如何生成的。判别模型可以根据给定的数据x预测对应的y（回归），或根据不同的映射结果y来区分给定的数据x（分类）。但模型自身并不能产生数据。</p>
+<hr>
+<p><strong>生成模型</strong>是对条件概率p(x|y)和先验概率p(y)建模，通过贝叶斯公式 间接求目标变量的概率。<br><strong>判别模型</strong>是对p(y|x)建模，直接求出目标变量的概率。</p>
+<hr>
+<p><strong>生成模型</strong>是对两个类别分别进行建模，用新的样例去匹配两个模型，匹配度较 高的作为新样例的类别，比如良性肿瘤与恶性肿瘤的分类，首先对两个类别分别 建模，比如分别计算两类肿瘤是否扩散的概率，计算肿瘤大小大于某个值的概率 等等；再比如狗与大象的分类，分别对狗与大象建模，比如计算体重大于某个值 的概率，鼻子长度大于某个值的概率等等。</p>
+<p><strong>判别学习</strong>直接对问题进行求解，比如二类分类问题，不管是感知器算法还是LR算法，都是在空间中寻找一条直线从而把两种类别的样例分开，对于新的样例只要判断在直线的哪一侧即可；这种直接对问题求解的方法。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/11/生成学习与判别学习/#далее" rel="contents">
